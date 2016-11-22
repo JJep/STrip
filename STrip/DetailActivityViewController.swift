@@ -60,6 +60,8 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
         detailView.bounds.size.height += extraHeight()
 
         initTableView()
+        
+        
         // Do any additional setup after loading the view.
     }
     

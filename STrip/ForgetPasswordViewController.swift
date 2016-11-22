@@ -64,7 +64,7 @@ class ForgetPasswordViewController: UIViewController {
             "phoneNumber": phoneNumber
             ]
         
-        Alamofire.request("http://192.168.1.112:8080/Trip/findPassWord", method: .post, parameters:parameters)
+        Alamofire.request("http://192.168.88.23:8080/Trip5.0/user/getCoded", method: .post, parameters:parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -108,7 +108,7 @@ class ForgetPasswordViewController: UIViewController {
             "passWord": password
             ]
         
-        Alamofire.request("http://192.168.1.112:8080/Trip/ForGetPassword", method: .post, parameters:parameters)
+        Alamofire.request("http://192.168.88.23:8080/Trip5.0/user/ForGetPassword", method: .post, parameters:parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {

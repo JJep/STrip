@@ -69,7 +69,7 @@ class RegisterViewController: UIViewController {
             "phoneNumber": phoneNumber,
         ]
         
-        Alamofire.request("http://192.168.1.112:8080/Trip/GetCodeServlet?", method: .post, parameters:parameters)
+        Alamofire.request("http://192.168.88.23:8080/Trip5.0/user/getRegisterCode", method: .post, parameters:parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -114,7 +114,7 @@ class RegisterViewController: UIViewController {
             "passWord": passWord
             ]
         
-        Alamofire.request("http://192.168.1.112:8080/Trip/Register?", method: .post, parameters:parameters)
+        Alamofire.request("http://192.168.88.23:8080/Trip5.0/userRegister?", method: .post, parameters:parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {

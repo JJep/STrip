@@ -51,17 +51,9 @@ UINavigationControllerDelegate, UITextViewDelegate {
             "return_Time": returnTime,//到达时间
             "share_House": shareHouse,//是否拼房 0 代表不拼 1代表拼  int
             "people_Num": peopleNum,//约伴人数int
-            "require": require,//约伴要求
+            "required": require,//约伴要求
             "description": tripTextView.text,//行程描述
-            
-            
-            
-            
-            "fid": 1,//对应用户id  int
-            
-            
-            
-            
+            "fid": UserDefaults.standard.value(forKey: "uid"),//对应用户id  int
             "budget": budget,//预算
             "costs": costs,//消费方式
             
@@ -134,7 +126,7 @@ UINavigationControllerDelegate, UITextViewDelegate {
                     let fileName = uploadImageName[i]
                     print(file1Data)
                     
-                    multipartFormData.append(file1Data!, withName: "withName", fileName: fileName, mimeType: fileName)
+                    multipartFormData.append(file1Data!, withName: "file", fileName: fileName, mimeType: fileName)
 
                     
                     
@@ -147,12 +139,12 @@ UINavigationControllerDelegate, UITextViewDelegate {
                 }
 
             },
-            to: "http://192.168.88.23:8080/Trip/CreateActivity",
+            to: "http://192.168.88.23:8080/Trip5.0/activity/CreateActivity",
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
- 
+
                         debugPrint(response)
                     }
                 case .failure(let encodingError):

@@ -531,8 +531,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="个人中心" id="dzE-bs-WIU"/>
                     <connections>
-                        <outlet property="followLabel" destination="3bV-Fr-dUs" id="eM8-SU-HZj"/>
-                        <outlet property="followerLabel" destination="YTJ-S4-EjD" id="kh7-qn-dBQ"/>
+                        <outlet property="activitiesLabel" destination="P7W-Lq-uHV" id="KVJ-uE-bjV"/>
+                        <outlet property="followLabel" destination="3bV-Fr-dUs" id="9Eu-Kt-yBc"/>
+                        <outlet property="followerLabel" destination="YTJ-S4-EjD" id="k65-S0-ASQ"/>
+                        <outlet property="userID" destination="wsM-gi-pIe" id="bHg-k4-1lI"/>
+                        <outlet property="userNameLabel" destination="Mce-Jd-9oB" id="YzC-jR-tF4"/>
                         <outlet property="weiboLabel" destination="P7W-Lq-uHV" id="UFv-GK-kdd"/>
                     </connections>
                 </tableViewController>
@@ -1053,7 +1056,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZkK-p8-zIV">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="BDc-4X-Mjw">
-                                    <rect key="frame" x="0.0" y="64" width="375" height="516"/>
+                                    <rect key="frame" x="0.0" y="64" width="1000" height="516"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="rc8-JI-sZb">
@@ -1295,10 +1298,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="9TG-HH-W41">
-                                        <rect key="frame" x="0.0" y="608" width="375" height="93"/>
+                                        <rect key="frame" x="0.0" y="608" width="1000" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9TG-HH-W41" id="gmS-tX-gb6">
-                                            <frame key="frameInset" width="375" height="92"/>
+                                            <frame key="frameInset" width="1000" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

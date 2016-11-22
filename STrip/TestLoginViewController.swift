@@ -53,7 +53,7 @@ class TestLoginViewController: UIViewController {
         ]
         
         
-        Alamofire.request("http://192.168.1.32:8080/Trip/LoginByPassWord", method: .post, parameters:parameters)
+        Alamofire.request("http://192.168.88.23:8080/Trip5.0/user/LoginByPassWord", method: .post, parameters:parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -75,12 +75,15 @@ class TestLoginViewController: UIViewController {
                         print("swich中sign的值：\(status)")
                     case 0:
                         print("\(type(of: dict["uid"]))")
-                        let uid = dict["uid"] as! NSNumber
-                        self.deleteUserInformation()
-                        self.storeUserInformation(available: 1, phoneNumber: phoneNumber, uid: uid)
-                        self.getUserinformation()
+//                        let uid = dict["uid"] as! NSNumber
+//                        self.deleteUserInformation()
+//                        self.storeUserInformation(available: 1, phoneNumber: phoneNumber, uid: uid)
+//                        self.getUserinformation()
 
-                        
+                        let uid = dict["uid"] as! Int
+                        UserDefaults.standard.set(Int(uid), forKey: "uid")
+                        UserDefaults.standard.synchronize()
+
                         
                         /**登录成功并提示**/
                         let alertController = UIAlertController(title: "系统提示", message: "登录成功", preferredStyle: .alert)
@@ -187,6 +190,10 @@ class TestLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordText.isSecureTextEntry = true
+        
+        
         loginBtn.backgroundColor = UIColor(colorLiteralRed: 153/255, green: 204/255, blue: 250/255, alpha: 1.0)
         initNavigationBar()
         spinner.hidesWhenStopped = true

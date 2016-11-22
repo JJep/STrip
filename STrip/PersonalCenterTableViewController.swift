@@ -13,8 +13,8 @@ class PersonalCenterTableViewController: UITableViewController {
     @IBOutlet weak var followLabel: UILabel!
     @IBOutlet weak var followerLabel: UILabel!
     @IBOutlet weak var weiboLabel: UILabel!
-
-
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userID: UILabel!
 
     func initBtn () {
         followLabel.text = "0\nFollow"

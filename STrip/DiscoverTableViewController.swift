@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import Kingfisher
 
 class DiscoverTableViewController: UITableViewController {
     
+    let showActivityUrl = "http://192.168.88.23:8080/"
+    
+    var list: [ActivityCell] = []
     
     //MARK: label行高的相关设置
     func getLabHeight(labelStr:String,font:UIFont,width:CGFloat) -> CGFloat {
@@ -39,27 +44,7 @@ class DiscoverTableViewController: UITableViewController {
         return strSize.width
         
     }
-    
-
-    var tableData = [
-        ["headPotrait": "头像",
-         "userName": "西游行者",
-         "status": "进行中",
-         "activityText": "11月7号成都出发，去看晚秋的青杨林，冬日里的红房子，稻城亚丁色达，8天时间，费用AA，沿途边走边玩。不限年龄，不限性别，说走就走。有兴趣的一起来。",
-         "pic1": "gallery1",
-         "pic2": "gallery2",
-         "pic3": "gallery3"
-         ],
-        ["headPotrait": "头像",
-         "userName": "冬游行者",
-         "status": "进行中",
-         "activityText": "号成都出发，去看房子，稻城亚丁色达用AA，沿途晚秋的青杨林，冬日里的红边走边玩。不限年龄，不限性别，说走就走。有兴趣，8天时间，费的一起发饰发夹死哦分萨基哦发丝哦附加赛哦分   上飞机哦减肥 i 哦啊师傅 分萨基哦分数来。",
-         "pic1": "gallery1",
-         "pic2": "gallery2",
-         "pic3": "gallery3"
-        ]
-    ]
-    
+        
     func initTableView () {
         
         //设置表格背景色
@@ -83,7 +68,13 @@ class DiscoverTableViewController: UITableViewController {
         super.viewDidLoad()
         
         initTableView()
+        
+        downloadData()
 
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(downloadData) , for: .valueChanged)
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -105,7 +96,7 @@ class DiscoverTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.tableData.count
+        return list.count
     }
 
 
@@ -118,19 +109,117 @@ class DiscoverTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
         
-        let item = tableData[indexPath.row]
+//        let item = tableData[indexPath.row]
         
-        cell.headPortrait.image = UIImage(named: item["headPotrait"]!)
-        cell.userName.text = item["userName"]
-        cell.status.text = item["status"]
-        cell.activityText.text = item["activityText"]
-        cell.pic1.image = UIImage(named: item["pic1"]!)
-        cell.pic2.image = UIImage(named: item["pic2"]!)
-        cell.pic3.image = UIImage(named: item["pic3"]!)
+        let item = list[indexPath.row]
+        
+        let portraitUrl = "http://192.168.88.23:8080/Trip5.0/head/" + item.portrait
+        
+        cell.headPortrait.kf.setImage(with: URL(string: portraitUrl))
+        cell.activityText.text = item.activityText
+        cell.userName.text = item.userName
+        
+        var condition = ""
+        
+        switch item.condition {
+        case 0:
+            condition = "进行中"
+        default:
+            break
+        }
+        
+        cell.status.text = condition
+        
+        let thumbArray = item.image.components(separatedBy: ",")
+        
+        for i in 0..<thumbArray.count {
+            print(thumbArray[i])
+        }
+        
+        let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
+        print(pic1)
+        
+        cell.pic1.kf.setImage(with: URL(string: pic1))
+        
+//        switch thumbArray.count {
+//        case 0:
+//            let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
+//            print(pic1)
+////            cell.pic1.kf.setImage(with: URL(string: pic1))
+//
+//        case 1:
+//            let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
+//            let pic2 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[1]
+//            print(pic1)
+//            print(pic2)
+////            cell.pic1.kf.setImage(with: URL(string: pic1))
+////            cell.pic2.kf.setImage(with: URL(string: pic2))
+//        case 2:
+//            let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
+//            let pic2 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[1]
+//            let pic3 = "http://192.168.88.23:8080/Trip5.0/" + thumbArray[2]
+//            print(pic2)
+//            print(pic1)
+//            print(pic3)
+////            cell.pic1.kf.setImage(with: URL(string: pic1))
+////            cell.pic1.kf.setImage(with: URL(string: pic2))
+////            cell.pic1.kf.setImage(with: URL(string: pic3))
+//            
+//
+//        default:
+//            break
+//        }
+        
         
         return cell
     }
     
+    func downloadData () {
+        
+        Alamofire.request(showActivityUrl + "Trip5.0/activity/showActivity", method: .post)
+            .responseJSON(completionHandler:{ Response in
+                
+                switch Response.result {
+                    
+                case .success(let json):
+                    let dict = json as! Dictionary<String, AnyObject>
+                    let status = dict["status"] as! Int
+                    print(dict)
+                    switch status {
+                    case 0:
+                        print("\(type(of: dict["uid"]))")
+                        guard let json = json as? NSDictionary else {
+                            return
+                        }
+                        
+                        let lives = STripActivity(fromDictionary: json).list!
+                        
+                        self.list = lives.map({ (list) -> ActivityCell in
+                            return ActivityCell(userName: list.userName, portrait: list.headPortrait, condition: list.status, image: list.thumbnail, activityText: list.description)
+                        })
+                            
+                    default:
+                        break
+                    }
+                case .failure (let error):
+                    let alertController = UIAlertController(title: "系统提示", message: "网络无法连接", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                    alertController.addAction(cancelAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    print("\(error)")
+                }
+                
+                dump(self.list)
+                
+                OperationQueue.main.addOperation {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+
+            })
+    }
+    
+
 
     /*
     // Override to support conditional editing of the table view.

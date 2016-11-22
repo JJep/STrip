@@ -8,4 +8,7 @@
 
 import Foundation
 
-let address = "http://192.168.1.132:8080"
+struct ConstValue {
+    let address = "http://192.168.1.132:8080"
+    static let location = "http://192.168.1.132:8080"
+}
