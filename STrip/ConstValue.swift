@@ -9,6 +9,5 @@
 import Foundation
 
 struct ConstValue {
-    let address = "http://192.168.1.132:8080"
-    static let location = "http://192.168.1.132:8080"
+    static let address = "http://192.168.88.23:8080"
 }

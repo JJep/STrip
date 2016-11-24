@@ -22,10 +22,7 @@ class PersonalCenterTableViewController: UITableViewController {
         weiboLabel.text = "0\nWeibo"
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        initBtn()
+    func initNavigationController () {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.orange
@@ -37,6 +34,25 @@ class PersonalCenterTableViewController: UITableViewController {
                 NSFontAttributeName:font
             ]
         }
+    }
+    
+    func initUserInformation () {
+        
+        if UserDefaults.standard.integer(forKey: "uid") != 0 {
+            print("UserDefaults.standard.integerForKey(\"uid\") = \(UserDefaults.standard.integer(forKey: "uid"))")
+            userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as! String
+        } else {
+            userNameLabel.text = "请登录"
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        initBtn()
+        initNavigationController()
+        initUserInformation()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

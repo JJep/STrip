@@ -11,7 +11,7 @@ import Alamofire
 import Photos
 
 class CompletionActivityTableViewController: UITableViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate, UITextViewDelegate {
+UINavigationControllerDelegate, UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var chooseImgBtn: UIButton!
     @IBOutlet weak var tripTextView: UITextView!
@@ -42,6 +42,38 @@ UINavigationControllerDelegate, UITextViewDelegate {
     var costs: String!
     var budget: Int!
     
+    var collectionView: UICollectionView!
+    
+    func initCollectionView () {
+        
+        
+        let width = self.view.bounds.size.width
+        
+        //定义collectionView的布局类型，流布局
+        let layout = UICollectionViewFlowLayout()
+        
+        
+        //设置cell的大小
+        layout.itemSize = CGSize(width: (width - 30)/3, height: (width - 30)/3)
+        //滑动方向 默认方向是垂直
+        layout.scrollDirection = .vertical
+        //每个Item之间最小的间距
+        layout.minimumInteritemSpacing = 10
+        //每行之间最小的间距
+        layout.minimumLineSpacing = 0
+        
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: width, height: width), collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.white
+        //CollectionViewCell的注册
+        collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MyCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        self.view.addSubview(collectionView)
+
+    }
+    
+    
     func setParameters ()  {
         
         parameters = [
@@ -53,7 +85,7 @@ UINavigationControllerDelegate, UITextViewDelegate {
             "people_Num": peopleNum,//约伴人数int
             "required": require,//约伴要求
             "description": tripTextView.text,//行程描述
-            "fid": UserDefaults.standard.value(forKey: "uid"),//对应用户id  int
+            "fid": UserDefaults.standard.integer(forKey: "uid"),//对应用户id  int
             "budget": budget,//预算
             "costs": costs,//消费方式
             
@@ -65,7 +97,7 @@ UINavigationControllerDelegate, UITextViewDelegate {
     @IBAction func completeActivity(_ sender: UIButton) {
         
         setParameters()
-        uploadPic(uploadImages: imageArray , parameters: parameters, uploadImageName: imageName)
+        uploadData(uploadImages: imageArray , parameters: parameters, uploadImageName: imageName)
         
         
     }
@@ -80,8 +112,6 @@ UINavigationControllerDelegate, UITextViewDelegate {
             self.imageAssets = assets
             
             for i in 0..<assets.count {
-                
-                
                 let myAsset = assets[i]
                 var photoName: String!
                 //获取文件名
@@ -98,28 +128,35 @@ UINavigationControllerDelegate, UITextViewDelegate {
                     
                     self.imageName.append(photoName!)
                     print(photoText)
-                })
+                    
                 
+                })
                 //获取原图
                 PHImageManager.default().requestImage(for: myAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: nil, resultHandler: { (image, _: [AnyHashable : Any]?) in
-                    self.addImages(image: image!)
+//                    self.addImages(image: image!)
+                    self.imageArray.append(image!)
+                    OperationQueue.main.addOperation {
+                        self.collectionView.reloadData()
+                    }
+                   
                 })
 
             }
-            
         }
         
+         self.collectionView.reloadData()
     }
     
-    func uploadPic (uploadImages: [UIImage], parameters: [String: Any], uploadImageName: [String]) {
+    
+    func uploadData (uploadImages: [UIImage], parameters: [String: Any], uploadImageName: [String]) {
         
         Alamofire.upload(
             multipartFormData: { multipartFormData in
-
+                
                 
                 //遍历上传图片
                 for i in 0 ..< (uploadImages.count) {
-
+                    
                     let image = uploadImages[i]
                     
                     let file1Data = UIImageJPEGRepresentation(image, 1) //此时scale参数为0.3
@@ -127,7 +164,7 @@ UINavigationControllerDelegate, UITextViewDelegate {
                     print(file1Data)
                     
                     multipartFormData.append(file1Data!, withName: "file", fileName: fileName, mimeType: fileName)
-
+                    
                     
                     
                 }
@@ -137,14 +174,14 @@ UINavigationControllerDelegate, UITextViewDelegate {
                     multipartFormData.append( String(describing: value).data(using: String.Encoding.utf8)!, withName: key)
                     
                 }
-
+                
             },
-            to: "http://192.168.88.23:8080/Trip5.0/activity/CreateActivity",
+            to: (ConstValue.address + "/Trip5.0/activity/CreateActivity"),
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
-
+                        
                         debugPrint(response)
                     }
                 case .failure(let encodingError):
@@ -154,6 +191,8 @@ UINavigationControllerDelegate, UITextViewDelegate {
         )
         
     }
+    
+
     
     func textView(_ shouldChangeTextIntextView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {
@@ -241,16 +280,97 @@ UINavigationControllerDelegate, UITextViewDelegate {
                 self.chooseImgBtn.frame = CGRect(x: x + 8, y: y, width: self.chooseImgBtn.bounds.width, height: self.chooseImgBtn.bounds.height)
             }
         }
+        
     }
 
-
     
+    // #MARK: --UICollectionViewDataSource的代理方法
+    /**
+     - 该方法是可选方法，默认为1
+     - returns: CollectionView中section的个数
+     */
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return imageArray.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! ImageCollectionViewCell
+        
+        let index = indexPath.row
+        if index == imageArray.count {
+            cell.image.image = UIImage(named: "添加图片")
+            cell.deleteBtn.isHidden = true
+        } else {
+            let image = imageArray[indexPath.row]
+            cell.image.image = image
+        }
+        
+        return cell
+
+    }
+    
+    
+//    
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
+//    
+//    /**
+//     - returns: Section中Item的个数
+//     */
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return imageArray.count + 1
+//    }
+//    
+//    /**
+//     - returns: 绘制collectionView的cell
+//     */
+//    func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell {
+//        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! ImageCollectionViewCell
+//        
+//        let index = indexPath.row
+//        if index == imageArray.count {
+//            cell.image.image = UIImage(named: "添加图片")
+//            cell.deleteBtn.isHidden = true
+//        } else {
+//            let image = imageArray[indexPath.row]
+//            cell.image.image = image
+//        }
+//
+//        return cell
+//    }
+//    
+//    /**
+//     - returns: 返回headview或者footview
+//     */
+//    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+//        let headView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headView", for: indexPath as IndexPath)
+//        headView.backgroundColor = UIColor.white
+//        
+//        return headView
+//    }
+//
+//    // #MARK: --UICollectionViewDelegate的代理方法
+//    /**
+//     Description:当点击某个Item之后的回应
+//     */
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        print("(\(indexPath.section),\(indexPath.row))")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTextView(textView: tripTextView)
-
+        initCollectionView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

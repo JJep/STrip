@@ -53,7 +53,7 @@ class TestLoginViewController: UIViewController {
         ]
         
         
-        Alamofire.request("http://192.168.88.23:8080/Trip5.0/user/LoginByPassWord", method: .post, parameters:parameters)
+        Alamofire.request(ConstValue.address + "/Trip5.0/user/LoginByPassWord", method: .post, parameters:parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -81,7 +81,8 @@ class TestLoginViewController: UIViewController {
 //                        self.getUserinformation()
 
                         let uid = dict["uid"] as! Int
-                        UserDefaults.standard.set(Int(uid), forKey: "uid")
+                        UserDefaults.standard.set(uid, forKey: "uid")
+                        UserDefaults.standard.set(phoneNumber, forKey: "userName")
                         UserDefaults.standard.synchronize()
 
                         

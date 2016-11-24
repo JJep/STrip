@@ -12,8 +12,6 @@ import Kingfisher
 
 class DiscoverTableViewController: UITableViewController {
     
-    let showActivityUrl = "http://192.168.88.23:8080/"
-    
     var list: [ActivityCell] = []
     
     //MARK: label行高的相关设置
@@ -113,62 +111,62 @@ class DiscoverTableViewController: UITableViewController {
         
         let item = list[indexPath.row]
         
-        let portraitUrl = "http://192.168.88.23:8080/Trip5.0/head/" + item.portrait
-        
+        let portraitUrl = ConstValue.address + "/Trip5.0/head/" + item.portrait
         cell.headPortrait.kf.setImage(with: URL(string: portraitUrl))
+        
+        
         cell.activityText.text = item.activityText
         cell.userName.text = item.userName
         
         var condition = ""
-        
         switch item.condition {
         case 0:
             condition = "进行中"
         default:
             break
         }
-        
         cell.status.text = condition
         
-        let thumbArray = item.image.components(separatedBy: ",")
         
+        let thumbArray = item.image.components(separatedBy: ",")
+        print("thumbArray==================================\nthumbArray.count = \(thumbArray.count)")
         for i in 0..<thumbArray.count {
             print(thumbArray[i])
         }
-        
-        let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
-        print(pic1)
-        
-        cell.pic1.kf.setImage(with: URL(string: pic1))
-        
-//        switch thumbArray.count {
-//        case 0:
-//            let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
-//            print(pic1)
-////            cell.pic1.kf.setImage(with: URL(string: pic1))
-//
-//        case 1:
-//            let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
-//            let pic2 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[1]
-//            print(pic1)
-//            print(pic2)
-////            cell.pic1.kf.setImage(with: URL(string: pic1))
-////            cell.pic2.kf.setImage(with: URL(string: pic2))
-//        case 2:
-//            let pic1 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[0]
-//            let pic2 = "http://192.168.88.23:8080/Trip5.0/thumbnails/" + thumbArray[1]
-//            let pic3 = "http://192.168.88.23:8080/Trip5.0/" + thumbArray[2]
-//            print(pic2)
-//            print(pic1)
-//            print(pic3)
-////            cell.pic1.kf.setImage(with: URL(string: pic1))
-////            cell.pic1.kf.setImage(with: URL(string: pic2))
-////            cell.pic1.kf.setImage(with: URL(string: pic3))
-//            
-//
-//        default:
-//            break
-//        }
+        switch thumbArray.count {
+        case 2:
+            let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
+            print(pic1)
+            cell.pic1.kf.setImage(with: URL(string: pic1))
+            cell.pic2.isHidden = true
+            cell.pic3.isHidden = true
+
+        case 3:
+            let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
+            let pic2 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[1]
+            print(pic1)
+            print(pic2)
+            cell.pic1.kf.setImage(with: URL(string: pic1))
+            cell.pic2.kf.setImage(with: URL(string: pic2))
+            cell.pic2.isHidden = false
+            cell.pic3.isHidden = true
+        case 4:
+            let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
+            let pic2 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[1]
+            let pic3 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[2]
+            print(pic1)
+            print(pic2)
+            print(pic3)
+            cell.pic1.kf.setImage(with: URL(string: pic1))
+            cell.pic2.kf.setImage(with: URL(string: pic2))
+            cell.pic3.kf.setImage(with: URL(string: pic3))
+            cell.pic2.isHidden = false
+            cell.pic3.isHidden = false
+            
+
+        default:
+            break
+        }
         
         
         return cell
@@ -176,7 +174,7 @@ class DiscoverTableViewController: UITableViewController {
     
     func downloadData () {
         
-        Alamofire.request(showActivityUrl + "Trip5.0/activity/showActivity", method: .post)
+        Alamofire.request(ConstValue.address + "/Trip5.0/activity/showActivity", method: .post)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
