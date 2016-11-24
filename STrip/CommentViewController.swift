@@ -15,7 +15,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var uid: Int!
     var aid: Int!
     
-    var activityComment: [StripComment] = []
+    var activityComment: [DetailCommentList] = []
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentText: UITextField!
@@ -25,8 +25,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func sendBtn(_ sender: UIButton) {
         sendComment()
     }
-    
-    var commentData: NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,6 +175,10 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activityComment.count
     }
@@ -202,11 +204,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         let portraitUrl = ConstValue.address + "/Trip5.0/head/" + item.headPortrait
         cell.userPortrait.kf.setImage(with: URL(string: portraitUrl))
         
-        if let comment = item.comment as? String{
-            print(comment)
-            cell.commentText.text = comment
-        }
-        
+        let comment = item.comment
+        cell.commentText.text = comment
+
         return cell
 
 
@@ -231,8 +231,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
                         return
                     }
                     
-                    let comments = StripRootActivity(fromDictionary: json).comments
+
+                    print(json)
+                    
+                    let comments = DetailCommentRootClass(fromDictionary: json).list
                     self.activityComment = comments!
+                    print(self.activityComment)
                     
                     OperationQueue.main.addOperation {
                         self.tableView.reloadData()

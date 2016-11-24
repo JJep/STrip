@@ -1,33 +1,34 @@
 //
-//	StripComment.swift
+//	DetailCommentList.swift
 //
 //	Create by Jep Xia on 24/11/2016
 //	Copyright © 2016. All rights reserved.
 //	模型生成器（小波汉化）JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation
-struct StripComment{
 
+struct DetailCommentList{
+
+	var userName : String!
 	var aid : Int!
-	var comment : AnyObject!
+	var comment : String!
 	var headPortrait : String!
 	var id : Int!
 	var time : Int!
 	var uid : Int!
-    var userName : String!
 
 
 	/**
 	 * 用字典来初始化一个实例并设置各个属性值
 	 */
 	init(fromDictionary dictionary: NSDictionary){
+		userName = dictionary["userName"] as? String
 		aid = dictionary["aid"] as? Int
-		comment = dictionary["comment"] as? AnyObject
+		comment = dictionary["comment"] as? String
 		headPortrait = dictionary["head_Portrait"] as? String
 		id = dictionary["id"] as? Int
 		time = dictionary["time"] as? Int
 		uid = dictionary["uid"] as? Int
-        userName = dictionary["userName"] as? String
 	}
 
 	/**
@@ -36,6 +37,9 @@ struct StripComment{
 	func toDictionary() -> NSDictionary
 	{
 		var dictionary = NSMutableDictionary()
+		if userName != nil{
+			dictionary["userName"] = userName
+		}
 		if aid != nil{
 			dictionary["aid"] = aid
 		}
@@ -54,14 +58,7 @@ struct StripComment{
 		if uid != nil{
 			dictionary["uid"] = uid
 		}
-        if userName != nil {
-            dictionary["userName"] = userName
-        }
 		return dictionary
 	}
 
 }
-
-//StripComment(aid: , comment: , headPortrait: , id: , time: , uid: )
-
-

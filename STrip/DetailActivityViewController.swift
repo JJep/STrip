@@ -225,7 +225,6 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
         self.returnTimeLabel.text = detailActivity.returnTime
         self.startPlaceLabel.text = detailActivity.birthland
         self.destinationLabel.text = detailActivity.destination
-        self.aid = detailActivity.id
         
         if let thumbnail = thumbnails {
             let thumbArray = thumbnail.components(separatedBy: ",")

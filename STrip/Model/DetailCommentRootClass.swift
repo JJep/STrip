@@ -1,15 +1,15 @@
 //
-//	STripActivity.swift
+//	DetailCommentRootClass.swift
 //
-//	Create by Jep Xia on 22/11/2016
+//	Create by Jep Xia on 24/11/2016
 //	Copyright © 2016. All rights reserved.
 //	模型生成器（小波汉化）JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation
 
-struct STripActivity{
+struct DetailCommentRootClass{
 
-	var list : [STripList]!
+	var list : [DetailCommentList]!
 	var status : Int!
 
 
@@ -17,10 +17,10 @@ struct STripActivity{
 	 * 用字典来初始化一个实例并设置各个属性值
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		list = [STripList]()
+		list = [DetailCommentList]()
 		if let listArray = dictionary["list"] as? [NSDictionary]{
 			for dic in listArray{
-				let value = STripList(fromDictionary: dic)
+				let value = DetailCommentList(fromDictionary: dic)
 				list.append(value)
 			}
 		}

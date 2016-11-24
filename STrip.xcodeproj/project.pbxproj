@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		20CA842C0DCC1B806478ADE8 /* Pods_STrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E1387B60E16602DF707B16 /* Pods_STrip.framework */; };
-		BE20E9E31DE43A32005E59B6 /* STripActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE20E9E11DE43A32005E59B6 /* STripActivity.swift */; };
-		BE20E9E41DE43A32005E59B6 /* STripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE20E9E21DE43A32005E59B6 /* STripList.swift */; };
 		BE20E9E81DE43D8E005E59B6 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE20E9E71DE43D8E005E59B6 /* ActivityCell.swift */; };
 		BE20E9EA1DE440AC005E59B6 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = BE20E9E91DE440AC005E59B6 /* PodFile */; };
 		BE315E081DB608F40088C73A /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE315E071DB608F40088C73A /* TestLoginViewController.swift */; };
@@ -49,15 +47,19 @@
 		BEB3919E1DE038EC00D5F425 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3919C1DE038EC00D5F425 /* CommentTableViewCell.swift */; };
 		BEB3919F1DE038EC00D5F425 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB3919D1DE038EC00D5F425 /* CommentTableViewCell.xib */; };
 		BEB73EE71DE188D5005D61DF /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB73EE61DE188D5005D61DF /* CommentViewController.swift */; };
+		BEB9186D1DE7333100FA9843 /* STripActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB918681DE7333100FA9843 /* STripActivity.swift */; };
+		BEB9186E1DE7333100FA9843 /* StripComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB918691DE7333100FA9843 /* StripComment.swift */; };
+		BEB9186F1DE7333100FA9843 /* StripDetailActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9186A1DE7333100FA9843 /* StripDetailActivity.swift */; };
+		BEB918701DE7333100FA9843 /* STripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9186B1DE7333100FA9843 /* STripList.swift */; };
+		BEB918711DE7333100FA9843 /* StripRootActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9186C1DE7333100FA9843 /* StripRootActivity.swift */; };
+		BEB918741DE7350C00FA9843 /* DetailCommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB918721DE7350C00FA9843 /* DetailCommentList.swift */; };
+		BEB918751DE7350C00FA9843 /* DetailCommentRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB918731DE7350C00FA9843 /* DetailCommentRootClass.swift */; };
 		BEC4C5121DB61CEA0003EBBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */; };
 		BEC4E38C1DBCD02700ADF070 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */; };
 		BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */; };
 		BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */; };
 		BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */; };
 		BEF35DB31DE6A6710055F120 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DB21DE6A6710055F120 /* TestViewController.swift */; };
-		BEF35DBE1DE6D5DA0055F120 /* StripComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DBB1DE6D5DA0055F120 /* StripComment.swift */; };
-		BEF35DBF1DE6D5DA0055F120 /* StripDetailActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DBC1DE6D5DA0055F120 /* StripDetailActivity.swift */; };
-		BEF35DC01DE6D5DA0055F120 /* StripRootActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DBD1DE6D5DA0055F120 /* StripRootActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,8 +140,6 @@
 		9680B4B037CFCA9883ACAD83 /* Pods-STrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STrip/Pods-STrip.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E1387B60E16602DF707B16 /* Pods_STrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE20E9DF1DE436DA005E59B6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		BE20E9E11DE43A32005E59B6 /* STripActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STripActivity.swift; sourceTree = "<group>"; };
-		BE20E9E21DE43A32005E59B6 /* STripList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STripList.swift; sourceTree = "<group>"; };
 		BE20E9E71DE43D8E005E59B6 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		BE20E9E91DE440AC005E59B6 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
 		BE315E071DB608F40088C73A /* TestLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
@@ -180,15 +180,19 @@
 		BEB3919C1DE038EC00D5F425 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		BEB3919D1DE038EC00D5F425 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		BEB73EE61DE188D5005D61DF /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		BEB918681DE7333100FA9843 /* STripActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STripActivity.swift; sourceTree = "<group>"; };
+		BEB918691DE7333100FA9843 /* StripComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripComment.swift; sourceTree = "<group>"; };
+		BEB9186A1DE7333100FA9843 /* StripDetailActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripDetailActivity.swift; sourceTree = "<group>"; };
+		BEB9186B1DE7333100FA9843 /* STripList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STripList.swift; sourceTree = "<group>"; };
+		BEB9186C1DE7333100FA9843 /* StripRootActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripRootActivity.swift; sourceTree = "<group>"; };
+		BEB918721DE7350C00FA9843 /* DetailCommentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentList.swift; sourceTree = "<group>"; };
+		BEB918731DE7350C00FA9843 /* DetailCommentRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentRootClass.swift; sourceTree = "<group>"; };
 		BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailActivityViewController.swift; sourceTree = "<group>"; };
 		BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		BEF35DB21DE6A6710055F120 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		BEF35DBB1DE6D5DA0055F120 /* StripComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripComment.swift; sourceTree = "<group>"; };
-		BEF35DBC1DE6D5DA0055F120 /* StripDetailActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripDetailActivity.swift; sourceTree = "<group>"; };
-		BEF35DBD1DE6D5DA0055F120 /* StripRootActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripRootActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,11 +220,13 @@
 		BE20E9E01DE43A32005E59B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BEF35DBB1DE6D5DA0055F120 /* StripComment.swift */,
-				BEF35DBC1DE6D5DA0055F120 /* StripDetailActivity.swift */,
-				BEF35DBD1DE6D5DA0055F120 /* StripRootActivity.swift */,
-				BE20E9E11DE43A32005E59B6 /* STripActivity.swift */,
-				BE20E9E21DE43A32005E59B6 /* STripList.swift */,
+				BEB918721DE7350C00FA9843 /* DetailCommentList.swift */,
+				BEB918731DE7350C00FA9843 /* DetailCommentRootClass.swift */,
+				BEB918681DE7333100FA9843 /* STripActivity.swift */,
+				BEB918691DE7333100FA9843 /* StripComment.swift */,
+				BEB9186A1DE7333100FA9843 /* StripDetailActivity.swift */,
+				BEB9186B1DE7333100FA9843 /* STripList.swift */,
+				BEB9186C1DE7333100FA9843 /* StripRootActivity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,26 +540,27 @@
 				BE52F6411DD9B88400C7987C /* ZZPhotoPreviewCell.swift in Sources */,
 				BEC4E38C1DBCD02700ADF070 /* PickerViewController.swift in Sources */,
 				BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */,
+				BEB918741DE7350C00FA9843 /* DetailCommentList.swift in Sources */,
 				BE52F6401DD9B88400C7987C /* ZZPhotoCell.swift in Sources */,
 				BE37A77A1DCDCF2F00E01FE4 /* DiscoverTableViewController.swift in Sources */,
-				BE20E9E31DE43A32005E59B6 /* STripActivity.swift in Sources */,
-				BE20E9E41DE43A32005E59B6 /* STripList.swift in Sources */,
 				BE5609A91DC876D5003767DC /* PersonalCenterTableViewController.swift in Sources */,
-				BEF35DC01DE6D5DA0055F120 /* StripRootActivity.swift in Sources */,
+				BEB9186D1DE7333100FA9843 /* STripActivity.swift in Sources */,
 				BE59EDF21DE5B7B900C45F19 /* ImageCollectionViewCell.swift in Sources */,
+				BEB918711DE7333100FA9843 /* StripRootActivity.swift in Sources */,
 				BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */,
+				BEB9186E1DE7333100FA9843 /* StripComment.swift in Sources */,
 				BE315E081DB608F40088C73A /* TestLoginViewController.swift in Sources */,
 				BE3D2E8D1DBA1AB6001A46D9 /* CompletionActivityTableViewController.swift in Sources */,
 				BE7AFF911DB63B8800DD250F /* MessageTableViewCell.swift in Sources */,
-				BEF35DBE1DE6D5DA0055F120 /* StripComment.swift in Sources */,
 				BE8A7C401DB0D922002126BE /* RegisterViewController.swift in Sources */,
+				BEB918701DE7333100FA9843 /* STripList.swift in Sources */,
 				BE52F6391DD9B88400C7987C /* UICollectionView+Add.swift in Sources */,
 				BE52F63B1DD9B88400C7987C /* ZZAssetPreviewVC.swift in Sources */,
 				BE7A90651DCDC76D0040847A /* ActivityTableViewCell.swift in Sources */,
+				BEB9186F1DE7333100FA9843 /* StripDetailActivity.swift in Sources */,
 				BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */,
 				BEB73EE71DE188D5005D61DF /* CommentViewController.swift in Sources */,
 				BEAE1F061DABC82800284BEB /* STrip.xcdatamodeld in Sources */,
-				BEF35DBF1DE6D5DA0055F120 /* StripDetailActivity.swift in Sources */,
 				BEB3919E1DE038EC00D5F425 /* CommentTableViewCell.swift in Sources */,
 				BEA532A21DB0EC22009A36A0 /* ForgetPasswordViewController.swift in Sources */,
 				BE59EDF51DE5BDCA00C45F19 /* CollectionViewController.swift in Sources */,
@@ -564,6 +571,7 @@
 				BE52F63F1DD9B88400C7987C /* ZZImageSelectedLayer.swift in Sources */,
 				BE52F63A1DD9B88400C7987C /* ZZAssetGridViewController.swift in Sources */,
 				BE52F6421DD9B88400C7987C /* ZZPhotoViewController.swift in Sources */,
+				BEB918751DE7350C00FA9843 /* DetailCommentRootClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
