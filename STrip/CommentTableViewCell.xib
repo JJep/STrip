@@ -56,6 +56,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="commentText" destination="n2a-OJ-lEF" id="1lc-32-pdc"/>
                 <outlet property="time" destination="Liz-pB-pFE" id="jr2-BC-3eA"/>
                 <outlet property="userName" destination="TVT-Sq-3QR" id="hn5-F5-S31"/>
                 <outlet property="userPortrait" destination="cPl-C2-rSa" id="laW-L9-QPw"/>

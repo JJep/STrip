@@ -16,6 +16,22 @@ class FirstPageViewController: UIViewController, UIScrollViewDelegate{
     
     var timer: Timer!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        initView()
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = self.view.frame.width
         let offsetX = scrollView.contentOffset.x
@@ -84,22 +100,7 @@ class FirstPageViewController: UIViewController, UIScrollViewDelegate{
     override func viewDidAppear(_ animated: Bool) {
         initScrollView()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initView()
-        
-        
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
+   
     /*
     // MARK: - Navigation
 

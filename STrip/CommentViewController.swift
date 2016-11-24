@@ -11,6 +11,12 @@ import Alamofire
 
 class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    var id: Int!
+    var uid: Int!
+    var aid: Int!
+    
+    var activityComment: [StripComment] = []
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentText: UITextField!
     //toolBar的下约束
@@ -21,6 +27,17 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     var commentData: NSArray!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        initTableView()
+        downloadtableViewData()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillChange(_:)),
+                                               name: .UIKeyboardWillChangeFrame, object: nil)
+        
+    }
     
     //MARK: textField的相关设置
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -44,16 +61,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         UIView.setAnimationDuration(movementDuration )
         self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
         UIView.commitAnimations()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initTableView()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardWillChange(_:)),
-                                               name: .UIKeyboardWillChangeFrame, object: nil)
-        // Do any additional setup after loading the view.
     }
     
     // 键盘改变
@@ -113,22 +120,137 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func sendComment () {
         
+        uid = UserDefaults.standard.integer(forKey: "uid")
+        
+        let parameters = [
+            "aid": aid,
+            "uid": uid,
+            "comment": commentText.text!
+            ]  as [String : Any]
+        
+        print("parameters===============n \(parameters)")
+        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                
+                //遍历上传参数
+                for (key, value) in parameters {
+                    
+                    multipartFormData.append( String(describing: value).data(using: String.Encoding.utf8)!, withName: key)
+                    
+                }
+                
+            },
+            to: (ConstValue.address + "/Trip5.0/comment/AddComment"),
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+
+                        let json = response.result
+                        let dict = json.value as! Dictionary<String, AnyObject>
+                        let status = dict["status"] as! Int
+                        switch status {
+                        case 0:
+                            let alertController = UIAlertController(title: "系统提示", message: "评论成功", preferredStyle: .alert)
+                            let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                            alertController.addAction(cancelAction)
+                            self.present(alertController, animated: true, completion: nil)
+
+                        case 1:
+                            let alertController = UIAlertController(title: "系统提示", message: "评论失败", preferredStyle: .alert)
+                            let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                            alertController.addAction(cancelAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        default:
+                            break
+                        }
+
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
+            }
+        )
+        
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return activityComment.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell")
             as! CommentTableViewCell
+        let item = activityComment[indexPath.row]
+        cell.userName.text = item.userName
+        //时间戳
+        let timeStamp = item.time
+        //转换为时间
+        let timeInterval:TimeInterval = TimeInterval(timeStamp!)
+        let date = NSDate(timeIntervalSince1970: timeInterval)
+        
+        //格式话输出
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        let dateString = dformatter.string(from: date as Date)
+        
+        cell.time.text = dateString
+        let portraitUrl = ConstValue.address + "/Trip5.0/head/" + item.headPortrait
+        cell.userPortrait.kf.setImage(with: URL(string: portraitUrl))
+        
+        if let comment = item.comment as? String{
+            print(comment)
+            cell.commentText.text = comment
+        }
         
         return cell
 
+
     }
     
-
-    
+    func downloadtableViewData() {
+        let parameter = [
+            "id" : id,
+            "aid": aid
+        ]
+        Alamofire.request(ConstValue.address + "/Trip5.0/comment/QueryCommentPull", method: .post, parameters: parameter).responseJSON(completionHandler: { Response in
+            
+            switch Response.result {
+            case .success(let json):
+                let dict = json as! Dictionary<String, AnyObject>
+                let status = dict["status"] as! Int
+                print(dict)
+                switch status {
+                case 0:
+                    print("\(type(of: dict["uid"]))")
+                    guard let json = json as? NSDictionary else {
+                        return
+                    }
+                    
+                    let comments = StripRootActivity(fromDictionary: json).comments
+                    self.activityComment = comments!
+                    
+                    OperationQueue.main.addOperation {
+                        self.tableView.reloadData()
+                    }
+                    
+                default:
+                    break
+                }
+                
+            case .failure(let Error):
+                let alertController = UIAlertController(title: "系统提示", message: "网络无法连接", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+                print(Error)
+            }
+        })
+    }
 
     /*
     // MARK: - Navigation

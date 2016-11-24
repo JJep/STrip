@@ -13,6 +13,7 @@ import Kingfisher
 class DiscoverTableViewController: UITableViewController {
     
     var list: [ActivityCell] = []
+    var aid: Int!
     
     //MARK: label行高的相关设置
     func getLabHeight(labelStr:String,font:UIFont,width:CGFloat) -> CGFloat {
@@ -101,6 +102,7 @@ class DiscoverTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "ShowDetailActivity", sender: 1)
+        
     }
     
     
@@ -114,7 +116,7 @@ class DiscoverTableViewController: UITableViewController {
         let portraitUrl = ConstValue.address + "/Trip5.0/head/" + item.portrait
         cell.headPortrait.kf.setImage(with: URL(string: portraitUrl))
         
-        
+        cell.tag = item.aid
         cell.activityText.text = item.activityText
         cell.userName.text = item.userName
         
@@ -193,7 +195,7 @@ class DiscoverTableViewController: UITableViewController {
                         let lives = STripActivity(fromDictionary: json).list!
                         
                         self.list = lives.map({ (list) -> ActivityCell in
-                            return ActivityCell(userName: list.userName, portrait: list.headPortrait, condition: list.status, image: list.thumbnail, activityText: list.description)
+                            return ActivityCell(userName: list.userName, portrait: list.headPortrait, condition: list.status, image: list.thumbnail, activityText: list.description, aid: list.id)
                         })
                             
                     default:
@@ -263,9 +265,17 @@ class DiscoverTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailActivity"{
-            let controller = segue.destination as! DetailActivityViewController
-            print("doingPrepare")
+            let destVC = segue.destination as! DetailActivityViewController
+            print("doingPrepare====================\n")
             self.tabBarController?.tabBar.isHidden = true
+            let index = tableView.indexPathForSelectedRow
+            destVC.aid = tableView.cellForRow(at: index!)?.tag
+            let num = index?.row
+            let item = self.list[num!]
+            destVC.detailActivityText = item.activityText
+            destVC.thumbnails = item.image
+            destVC.userName = item.userName
+            print("aid=\(destVC.aid)")
         }
     }
  

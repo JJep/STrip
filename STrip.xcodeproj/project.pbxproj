@@ -55,6 +55,9 @@
 		BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */; };
 		BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */; };
 		BEF35DB31DE6A6710055F120 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DB21DE6A6710055F120 /* TestViewController.swift */; };
+		BEF35DBE1DE6D5DA0055F120 /* StripComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DBB1DE6D5DA0055F120 /* StripComment.swift */; };
+		BEF35DBF1DE6D5DA0055F120 /* StripDetailActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DBC1DE6D5DA0055F120 /* StripDetailActivity.swift */; };
+		BEF35DC01DE6D5DA0055F120 /* StripRootActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DBD1DE6D5DA0055F120 /* StripRootActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +186,9 @@
 		BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailActivityViewController.swift; sourceTree = "<group>"; };
 		BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		BEF35DB21DE6A6710055F120 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		BEF35DBB1DE6D5DA0055F120 /* StripComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripComment.swift; sourceTree = "<group>"; };
+		BEF35DBC1DE6D5DA0055F120 /* StripDetailActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripDetailActivity.swift; sourceTree = "<group>"; };
+		BEF35DBD1DE6D5DA0055F120 /* StripRootActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripRootActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,9 @@
 		BE20E9E01DE43A32005E59B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BEF35DBB1DE6D5DA0055F120 /* StripComment.swift */,
+				BEF35DBC1DE6D5DA0055F120 /* StripDetailActivity.swift */,
+				BEF35DBD1DE6D5DA0055F120 /* StripRootActivity.swift */,
 				BE20E9E11DE43A32005E59B6 /* STripActivity.swift */,
 				BE20E9E21DE43A32005E59B6 /* STripList.swift */,
 			);
@@ -530,11 +539,13 @@
 				BE20E9E31DE43A32005E59B6 /* STripActivity.swift in Sources */,
 				BE20E9E41DE43A32005E59B6 /* STripList.swift in Sources */,
 				BE5609A91DC876D5003767DC /* PersonalCenterTableViewController.swift in Sources */,
+				BEF35DC01DE6D5DA0055F120 /* StripRootActivity.swift in Sources */,
 				BE59EDF21DE5B7B900C45F19 /* ImageCollectionViewCell.swift in Sources */,
 				BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */,
 				BE315E081DB608F40088C73A /* TestLoginViewController.swift in Sources */,
 				BE3D2E8D1DBA1AB6001A46D9 /* CompletionActivityTableViewController.swift in Sources */,
 				BE7AFF911DB63B8800DD250F /* MessageTableViewCell.swift in Sources */,
+				BEF35DBE1DE6D5DA0055F120 /* StripComment.swift in Sources */,
 				BE8A7C401DB0D922002126BE /* RegisterViewController.swift in Sources */,
 				BE52F6391DD9B88400C7987C /* UICollectionView+Add.swift in Sources */,
 				BE52F63B1DD9B88400C7987C /* ZZAssetPreviewVC.swift in Sources */,
@@ -542,6 +553,7 @@
 				BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */,
 				BEB73EE71DE188D5005D61DF /* CommentViewController.swift in Sources */,
 				BEAE1F061DABC82800284BEB /* STrip.xcdatamodeld in Sources */,
+				BEF35DBF1DE6D5DA0055F120 /* StripDetailActivity.swift in Sources */,
 				BEB3919E1DE038EC00D5F425 /* CommentTableViewCell.swift in Sources */,
 				BEA532A21DB0EC22009A36A0 /* ForgetPasswordViewController.swift in Sources */,
 				BE59EDF51DE5BDCA00C45F19 /* CollectionViewController.swift in Sources */,
