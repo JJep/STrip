@@ -30,7 +30,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         initTableView()
-        downloadtableViewData()
+        downloadNewCommentData()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardWillChange(_:)),
                                                name: .UIKeyboardWillChangeFrame, object: nil)
@@ -152,7 +152,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
                         switch status {
                         case 0:
                             let alertController = UIAlertController(title: "系统提示", message: "评论成功", preferredStyle: .alert)
-                            let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                            let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: { (_) in
+                                self.commentText.text = ""
+                                self.downloadNewCommentData()
+                            })
+                            
                             alertController.addAction(cancelAction)
                             self.present(alertController, animated: true, completion: nil)
 
@@ -212,7 +216,51 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
-    func downloadtableViewData() {
+    func downloadNewCommentData () {
+        let parameter = [
+            "aid" : aid
+        ]
+        Alamofire.request(ConstValue.address + "/Trip5.0/comment/QueryNewestComment", method: .post, parameters: parameter).responseJSON(completionHandler: { Response in
+            
+            switch Response.result {
+            case .success(let json):
+                let dict = json as! Dictionary<String, AnyObject>
+                let status = dict["status"] as! Int
+                print(dict)
+                switch status {
+                case 0:
+                    print("\(type(of: dict["uid"]))")
+                    guard let json = json as? NSDictionary else {
+                        return
+                    }
+                    
+                    
+                    print(json)
+                    
+                    let comments = DetailCommentRootClass(fromDictionary: json).list
+                    self.activityComment = comments!
+                    print(self.activityComment)
+                    self.id = self.activityComment[self.activityComment.count - 1].id
+                    
+                    OperationQueue.main.addOperation {
+                        self.tableView.reloadData()
+                    }
+                    
+                default:
+                    break
+                }
+                
+            case .failure(let Error):
+                let alertController = UIAlertController(title: "系统提示", message: "网络无法连接", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+                print(Error)
+            }
+        })
+    }
+    
+    func downloadMoreTableViewData() {
         let parameter = [
             "id" : id,
             "aid": aid
@@ -234,8 +282,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
                     print(json)
                     
-                    let comments = DetailCommentRootClass(fromDictionary: json).list
-                    self.activityComment = comments!
+                    let comments = DetailCommentRootClass(fromDictionary: json).list!
+                    let count = comments.count
+                    for i in 0..<count {
+                        self.activityComment.append(comments[i])
+                    }
                     print(self.activityComment)
                     
                     OperationQueue.main.addOperation {

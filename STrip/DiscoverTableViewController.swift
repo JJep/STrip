@@ -15,6 +15,19 @@ class DiscoverTableViewController: UITableViewController {
     var list: [ActivityCell] = []
     var aid: Int!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        initTableView()
+        
+        downloadData()
+        
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(downloadData) , for: .valueChanged)
+    }
+    
+
     //MARK: label行高的相关设置
     func getLabHeight(labelStr:String,font:UIFont,width:CGFloat) -> CGFloat {
         
@@ -63,24 +76,6 @@ class DiscoverTableViewController: UITableViewController {
 
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initTableView()
-        
-        downloadData()
-
-        self.refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(downloadData) , for: .valueChanged)
-
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

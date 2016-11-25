@@ -39,7 +39,20 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var requiredLabel: UILabel!
     @IBOutlet weak var picImageView: UIImageView!
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        detailView.bounds.size.height += extraHeight()
+        
+        initTableView()
+        loadDetailActivity()
+    
+        
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
     //MARK: label行高的相关设置
     func getLabHeight(labelStr:String,font:UIFont,width:CGFloat) -> CGFloat {
         
@@ -78,17 +91,7 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        detailView.bounds.size.height += extraHeight()
-
-        initTableView()
-        loadDetailActivity()
-        
-        // Do any additional setup after loading the view.
-    }
-    
     func initTableView () {
         
         detailTableView.delegate = self
@@ -106,6 +109,9 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
         detailTableView.estimatedRowHeight = 44.0
         
         detailTableView.rowHeight = UITableViewAutomaticDimension
+
+        detailTableView.refreshControl = UIRefreshControl()
+        detailTableView.refreshControl?.addTarget(self, action: #selector(loadDetailActivity), for: .valueChanged)
     
     }
     
@@ -187,6 +193,8 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
                     OperationQueue.main.addOperation {
                         self.initDetailActivity()
                         self.detailTableView.reloadData()
+                        self.detailTableView.refreshControl?.endRefreshing()
+
                     }
                     
                 default:
@@ -250,7 +258,6 @@ class DetailActivityViewController: UIViewController, UITableViewDelegate, UITab
             let destVC = segue.destination as! CommentViewController
             print("aid================\n\(self.aid)")
             destVC.aid = self.aid
-            destVC.id = activityComment[0].id + 1
         }
         
     }
