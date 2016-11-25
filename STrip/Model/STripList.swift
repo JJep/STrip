@@ -29,6 +29,8 @@ struct STripList{
 	var status : Int!
 	var thumbnail : String!
 	var userName : String!
+    var like: Bool!
+    var join: Bool!
 
 
 	/**
@@ -55,6 +57,8 @@ struct STripList{
 		status = dictionary["status"] as? Int
 		thumbnail = dictionary["thumbnail"] as? String
 		userName = dictionary["userName"] as? String
+        like = dictionary["like"] as? Bool
+        join = dictionary["join"] as? Bool
 	}
 
 	/**
@@ -123,6 +127,12 @@ struct STripList{
 		if userName != nil{
 			dictionary["userName"] = userName
 		}
+        if like != nil {
+            dictionary["like"] = like
+        }
+        if join != nil {
+            dictionary["join"] = join
+        }
 		return dictionary
 	}
 

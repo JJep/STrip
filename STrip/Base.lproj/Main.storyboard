@@ -1320,9 +1320,6 @@
                                         <state key="normal" title="评论">
                                             <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="pWO-ir-IaF" kind="show" identifier="showComment" id="Npi-J3-RGF"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoA-3D-ddn">
                                         <color key="backgroundColor" red="1" green="0.30359628348983636" blue="0.19410076694997291" alpha="1" colorSpace="calibratedRGB"/>
@@ -2458,6 +2455,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="SRL-4j-Pb5" kind="show" identifier="ShowDetailActivity" id="SvP-MZ-NbI"/>
+                        <segue destination="pWO-ir-IaF" kind="show" identifier="showComment" id="GDR-ho-ccU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5A-DD-jMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2551,7 +2549,7 @@
         <image name="自驾游" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Npi-J3-RGF"/>
+        <segue reference="GDR-ho-ccU"/>
         <segue reference="dJp-uY-rFo"/>
         <segue reference="lwe-h2-lTh"/>
     </inferredMetricsTieBreakers>

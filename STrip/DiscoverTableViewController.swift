@@ -10,11 +10,46 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-class DiscoverTableViewController: UITableViewController {
+//定义一个协议
+protocol LogManagerDelegate {
+    func writeLog()
+}
+
+////用户登录类
+//class UserController {
+//    var delegate : LogManagerDelegate?
+//    
+//    func login() {
+//        //查看是否有委托，然后调用它
+//        delegate?.writeLog()
+//    }
+//}
+//
+////日志管理类
+//class SqliteLogManager : LogManagerDelegate {
+//    func writeLog() {
+//        print("将日志记录到sqlite数据库中")
+//    }
+//}
+
+//let userController = UserController()
+//userController.login()  //不做任何事
+//
+//let sqliteLogManager = SqliteLogManager()
+//userController.delegate = sqliteLogManager
+//userController.login()  //输出“将日志记录到sqlite数据库中”
+
+
+class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
     
-    var list: [ActivityCell] = []
+    //用户登录类
+    func writeLog() {
+        print("将日志记录到sqlite数据库中")
+        self.performSegue(withIdentifier: "showComment", sender: 1)
+    }
+    
+    var activitis: [STripList] = []
     var aid: Int!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +125,7 @@ class DiscoverTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return list.count
+        return activitis.count
     }
 
 
@@ -106,34 +141,42 @@ class DiscoverTableViewController: UITableViewController {
         
 //        let item = tableData[indexPath.row]
         
-        let item = list[indexPath.row]
+        let item = activitis[indexPath.row]
         
-        let portraitUrl = ConstValue.address + "/Trip5.0/head/" + item.portrait
+        cell.aid = item.id
+        
+        let portraitUrl = ConstValue.address + "/Trip5.0/head/" + item.headPortrait
         cell.headPortrait.kf.setImage(with: URL(string: portraitUrl))
         
-        cell.tag = item.aid
-        cell.activityText.text = item.activityText
+        cell.tag = item.id
+        cell.activityText.text = item.description
         cell.userName.text = item.userName
         
         var condition = ""
-        switch item.condition {
+        switch item.status {
         case 0:
             condition = "进行中"
         default:
             break
         }
+        cell.isjoined = item.join
+        cell.isloved = item.like
         cell.status.text = condition
+        cell.likePeopleNum.setTitle(String(item.likePeople) + "人", for: .normal)
+        cell.CommentNum.setTitle(String(item.commentsSum) + "人", for: .normal)
+        cell.joinedPeopleNum.setTitle(String(item.nowpeople) + "人", for: .normal)
         
         
-        let thumbArray = item.image.components(separatedBy: ",")
-        print("thumbArray==================================\nthumbArray.count = \(thumbArray.count)")
-        for i in 0..<thumbArray.count {
-            print(thumbArray[i])
-        }
+        
+        let thumbArray = item.thumbnail.components(separatedBy: ",")
+//        print("thumbArray==================================\nthumbArray.count = \(thumbArray.count)")
+//        for i in 0..<thumbArray.count {
+//            print(thumbArray[i])
+//        }
         switch thumbArray.count {
         case 2:
             let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
-            print(pic1)
+//            print(pic1)
             cell.pic1.kf.setImage(with: URL(string: pic1))
             cell.pic2.isHidden = true
             cell.pic3.isHidden = true
@@ -141,8 +184,6 @@ class DiscoverTableViewController: UITableViewController {
         case 3:
             let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
             let pic2 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[1]
-            print(pic1)
-            print(pic2)
             cell.pic1.kf.setImage(with: URL(string: pic1))
             cell.pic2.kf.setImage(with: URL(string: pic2))
             cell.pic2.isHidden = false
@@ -151,9 +192,6 @@ class DiscoverTableViewController: UITableViewController {
             let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
             let pic2 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[1]
             let pic3 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[2]
-            print(pic1)
-            print(pic2)
-            print(pic3)
             cell.pic1.kf.setImage(with: URL(string: pic1))
             cell.pic2.kf.setImage(with: URL(string: pic2))
             cell.pic3.kf.setImage(with: URL(string: pic3))
@@ -171,7 +209,11 @@ class DiscoverTableViewController: UITableViewController {
     
     func downloadData () {
         
-        Alamofire.request(ConstValue.address + "/Trip5.0/activity/showActivity", method: .post)
+        let parameters = [
+            "uid": UserDefaults.standard.integer(forKey: "uid")
+        ]
+        
+        Alamofire.request(ConstValue.address + "/Trip5.0/activity/showActivity", method: .post, parameters: parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -189,10 +231,10 @@ class DiscoverTableViewController: UITableViewController {
                         
                         let lives = STripActivity(fromDictionary: json).list!
                         
-                        self.list = lives.map({ (list) -> ActivityCell in
-                            return ActivityCell(userName: list.userName, portrait: list.headPortrait, condition: list.status, image: list.thumbnail, activityText: list.description, aid: list.id)
-                        })
-                            
+                        self.activitis = lives
+                        print("acitivitis=================")
+                        dump(self.activitis)
+                        
                     default:
                         break
                     }
@@ -203,8 +245,6 @@ class DiscoverTableViewController: UITableViewController {
                     self.present(alertController, animated: true, completion: nil)
                     print("\(error)")
                 }
-                
-                dump(self.list)
                 
                 OperationQueue.main.addOperation {
                     self.tableView.reloadData()
@@ -261,16 +301,22 @@ class DiscoverTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailActivity"{
             let destVC = segue.destination as! DetailActivityViewController
-            print("doingPrepare====================\n")
+
             self.tabBarController?.tabBar.isHidden = true
             let index = tableView.indexPathForSelectedRow
             destVC.aid = tableView.cellForRow(at: index!)?.tag
             let num = index?.row
-            let item = self.list[num!]
-            destVC.detailActivityText = item.activityText
-            destVC.thumbnails = item.image
+            let item = self.activitis[num!]
+            destVC.detailActivityText = item.description
+            destVC.thumbnails = item.thumbnail
             destVC.userName = item.userName
-            print("aid=\(destVC.aid)")
+        }
+        if segue.identifier == "showComment" {
+            let destVC = segue.destination as! CommentViewController
+            let index = tableView.indexPathForSelectedRow
+            let num = index?.row
+            let item = self.activitis[num!]
+            destVC.aid = item.id
         }
     }
  

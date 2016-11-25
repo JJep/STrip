@@ -2,19 +2,33 @@
 
 import UIKit
 
+//定义一个协议
+protocol LogManagerDelegate {
+    func writeLog()
+}
 
-//时间戳
-let timeStamp = 1479545828000
-//转换为时间
-let timeInterval:TimeInterval = TimeInterval(timeStamp)
-let date = NSDate(timeIntervalSince1970: timeInterval)
-print(String(describing: date))
-//格式话输出
-let dformatter = DateFormatter()
-dformatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-print("对应的日期时间：\(dformatter.string(from: date as Date ))")
-print(dformatter.string(from: date as Date))
+//用户登录类
+class UserController {
+    var delegate : LogManagerDelegate?
+    
+    func login() {
+        //查看是否有委托，然后调用它
+        delegate?.writeLog()
+    }
+}
 
-let dateString = dformatter.string(from: date as Date)
-print(dateString)
+//日志管理类
+class SqliteLogManager : LogManagerDelegate {
+    func writeLog() {
+        print("将日志记录到sqlite数据库中")
+    }
+}
 
+
+//使用
+let userController = UserController()
+userController.login()  //不做任何事
+
+let sqliteLogManager = SqliteLogManager()
+userController.delegate = sqliteLogManager
+userController.login()  //输出“将日志记录到sqlite数据库中”

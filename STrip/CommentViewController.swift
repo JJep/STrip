@@ -240,7 +240,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let comments = DetailCommentRootClass(fromDictionary: json).list
                     self.activityComment = comments!
                     print(self.activityComment)
-                    self.id = self.activityComment[self.activityComment.count - 1].id
                     
                     OperationQueue.main.addOperation {
                         self.tableView.reloadData()
