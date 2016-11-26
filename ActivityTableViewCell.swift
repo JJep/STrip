@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ActivityTableViewCell: UITableViewCell{
+class ActivityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var headPortrait: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -53,7 +53,7 @@ class ActivityTableViewCell: UITableViewCell{
             //查看是否有委托，然后调用它
             delegate?.writeLog()
         }
-        login()
+//        login()
         
 //        var story =  UIStoryboard(name: "Main", bundle: nil)
 //        var storVC =  story(identifier:"VC")

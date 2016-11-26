@@ -125,6 +125,7 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+//        return activitis.count
         return activitis.count
     }
 
@@ -203,8 +204,14 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
             break
         }
         
+        let button = cell.viewWithTag(1) as! UIButton
+        button.addTarget(self, action: #selector(tryThis), for: .touchUpInside)
         
         return cell
+    }
+    
+    func tryThis () {
+        self.performSegue(withIdentifier: "showComment", sender: 1)
     }
     
     func downloadData () {
@@ -312,11 +319,11 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
             destVC.userName = item.userName
         }
         if segue.identifier == "showComment" {
-            let destVC = segue.destination as! CommentViewController
-            let index = tableView.indexPathForSelectedRow
-            let num = index?.row
-            let item = self.activitis[num!]
-            destVC.aid = item.id
+//            let destVC = segue.destination as! CommentViewController
+//            let index = tableView.indexPathForSelectedRow
+//            let num = index?.row
+//            let item = self.activitis[num!]
+//            destVC.aid = item.id
         }
     }
  
