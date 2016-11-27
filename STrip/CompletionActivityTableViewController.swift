@@ -27,7 +27,7 @@ UINavigationControllerDelegate, UITextViewDelegate, UICollectionViewDelegate, UI
     var  initialText: String!
     
     var parameters: [String: Any]!
-    var imageArray = [UIImage]()
+    var imageArray : [UIImage] = []
     var imageName = [String]()
     var imageNSURLs: [NSURL]!
     var imageAssets: [PHAsset]!
@@ -62,7 +62,9 @@ UINavigationControllerDelegate, UITextViewDelegate, UICollectionViewDelegate, UI
         //每行之间最小的间距
         layout.minimumLineSpacing = 0
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: width, height: width), collectionViewLayout: layout)
+        let y = topView.bounds.size.height
+        
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 340, width: width, height: width), collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         //CollectionViewCell的注册
         collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MyCell")
@@ -297,23 +299,78 @@ UINavigationControllerDelegate, UITextViewDelegate, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return imageArray.count + 1
+        var count = 0
+        if imageArray.count == 9 {
+            count = 9
+        } else {
+            count = imageArray.count + 1
+        }
+        print("cellCount= \(count)")
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! ImageCollectionViewCell
         
         let index = indexPath.row
+        print("index = \(index)")
+        print(imageArray.count)
         if index == imageArray.count {
-            cell.image.image = UIImage(named: "添加图片")
+            cell.image.image = UIImage(named: "addButton")
             cell.deleteBtn.isHidden = true
         } else {
             let image = imageArray[indexPath.row]
+            cell.deleteBtn.isHidden = false
             cell.image.image = image
         }
         
         return cell
 
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        if index == imageArray.count {
+            _ = self.zz_presentPhotoVC(3) { (assets) in
+                
+                self.imageAssets = assets
+                
+                for i in 0..<assets.count {
+                    let myAsset = assets[i]
+                    var photoName: String!
+                    //获取文件名
+                    PHImageManager.default().requestImageData(for: myAsset, options: nil,resultHandler: {
+                        _, _, _, info in
+                        photoName = (info!["PHImageFileURLKey"] as! NSURL).lastPathComponent
+                        
+                        let photoText = "assets[\(i)]:\n"
+                            + "名称: \(photoName!)\n"
+                            + "日期：\(myAsset.creationDate!)\n"
+                            + "类型：\(myAsset.mediaType.rawValue)\n"
+                            + "位置：\(myAsset.location)\n"
+                            + "时长：\(myAsset.duration)\n"
+                        
+                        self.imageName.append(photoName!)
+                        print(photoText)
+                        
+                        
+                    })
+                    //获取原图
+                    PHImageManager.default().requestImage(for: myAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: nil, resultHandler: { (image, _: [AnyHashable : Any]?) in
+                        //                    self.addImages(image: image!)
+                        self.imageArray.append(image!)
+                        OperationQueue.main.addOperation {
+                            self.collectionView.reloadData()
+                        }
+                        
+                    })
+                    
+                }
+            }
+            
+            self.collectionView.reloadData()
+
+        }
     }
     
     
@@ -371,6 +428,7 @@ UINavigationControllerDelegate, UITextViewDelegate, UICollectionViewDelegate, UI
         
         initTextView(textView: tripTextView)
         initCollectionView()
+        addingImageView.isHidden = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
