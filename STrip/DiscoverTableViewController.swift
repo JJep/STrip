@@ -15,31 +15,6 @@ protocol LogManagerDelegate {
     func writeLog()
 }
 
-////用户登录类
-//class UserController {
-//    var delegate : LogManagerDelegate?
-//    
-//    func login() {
-//        //查看是否有委托，然后调用它
-//        delegate?.writeLog()
-//    }
-//}
-//
-////日志管理类
-//class SqliteLogManager : LogManagerDelegate {
-//    func writeLog() {
-//        print("将日志记录到sqlite数据库中")
-//    }
-//}
-
-//let userController = UserController()
-//userController.login()  //不做任何事
-//
-//let sqliteLogManager = SqliteLogManager()
-//userController.delegate = sqliteLogManager
-//userController.login()  //输出“将日志记录到sqlite数据库中”
-
-
 class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
     
     //用户登录类
@@ -205,13 +180,12 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
         }
         
         let button = cell.viewWithTag(1) as! UIButton
-        button.addTarget(self, action: #selector(tryThis), for: .touchUpInside)
-        
+        button.addTarget(self, action: #selector(tryThis(_: )), for: .touchUpInside)
         return cell
     }
     
-    func tryThis () {
-        self.performSegue(withIdentifier: "showComment", sender: 1)
+    func tryThis (_ button : UIButton) {
+        self.performSegue(withIdentifier: "showComment", sender: button)
     }
     
     func downloadData () {
@@ -319,6 +293,17 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
             destVC.userName = item.userName
         }
         if segue.identifier == "showComment" {
+            self.tabBarController?.tabBar.isHidden = true
+
+            let destVC = segue.destination as! CommentViewController
+            let button = sender as! UIButton
+            let cell = button.superview?.superview?.superview as! UITableViewCell
+            let index = tableView.indexPath(for: cell)
+            let num = index?.row
+            let item = self.activitis[num!]
+            destVC.aid = item.id
+            
+            
 //            let destVC = segue.destination as! CommentViewController
 //            let index = tableView.indexPathForSelectedRow
 //            let num = index?.row

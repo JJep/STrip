@@ -31,20 +31,22 @@ class ActivityTableViewCell: UITableViewCell {
     var delegate : LogManagerDelegate?
 
     @IBAction func likeBtn(_ sender: UIButton) {
-        isloved = !isloved
+        
         if isloved {
             cancelLike()
         } else {
             uploadLove()
         }
+        isloved = !isloved
     }
     @IBAction func joinBtn(_ sender: UIButton) {
-        isjoined = !isjoined
+        
         if isjoined {
             cancelJoin()
         } else {
             uploadJoin()
         }
+        isjoined = !isjoined
     }
     @IBAction func commentBtn(_ sender: UIButton) {
 
@@ -53,6 +55,7 @@ class ActivityTableViewCell: UITableViewCell {
             //查看是否有委托，然后调用它
             delegate?.writeLog()
         }
+        
 //        login()
         
 //        var story =  UIStoryboard(name: "Main", bundle: nil)
@@ -87,7 +90,7 @@ class ActivityTableViewCell: UITableViewCell {
             "uid": UserDefaults.standard.integer(forKey: "uid")
         ]
         
-        Alamofire.request(ConstValue.address + "/Trip5.0/activity/JoinActivity", method: .post, parameters: parameters)
+        Alamofire.request(ConstValue.address + "/Trip5.0/activity/CancelJoinActivity", method: .post, parameters: parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -122,7 +125,7 @@ class ActivityTableViewCell: UITableViewCell {
             "uid": UserDefaults.standard.integer(forKey: "uid")
         ]
         
-        Alamofire.request(ConstValue.address + "/Trip5.0/activity/JoinActivity", method: .post, parameters: parameters)
+        Alamofire.request(ConstValue.address + "/Trip5.0/activity/CancelLiked", method: .post, parameters: parameters)
             .responseJSON(completionHandler:{ Response in
                 
                 switch Response.result {
@@ -135,11 +138,11 @@ class ActivityTableViewCell: UITableViewCell {
                     case 0:
                         break
                     default:
-                        self.isjoined = true
+                        self.isloved = true
                     }
                 case .failure (let error):
                     print("\(error)")
-                    self.isjoined = true
+                    self.isloved = true
                 }
                 
                 OperationQueue.main.addOperation {
