@@ -1755,10 +1755,10 @@
             </objects>
             <point key="canvasLocation" x="1366" y="1000"/>
         </scene>
-        <!--View Controller-->
+        <!--Hotel View Controller-->
         <scene sceneID="fcX-qD-fjc">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="02q-Wp-air" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="02q-Wp-air" customClass="HotelViewController" customModule="STrip" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ul-2P-UxH"/>
                         <viewControllerLayoutGuide type="bottom" id="HoJ-0r-Odb"/>
@@ -1814,19 +1814,78 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSk-Ma-0Vr">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="Dzc-wj-7cs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="Dzc-wj-7cs" customClass="HotelTableViewCell" customModule="STrip" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dzc-wj-7cs" id="uke-V7-G2Q">
-                                            <frame key="frameInset" width="375" height="160"/>
+                                            <frame key="frameInset" width="375" height="161"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-4X-nZe">
-                                                    <frame key="frameInset" minX="8" minY="8" width="129" height="140"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-4X-nZe">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="129" id="EIb-pU-yxm"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="酒店名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENX-JS-vPf">
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gud-g5-Oi6">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="yve-QB-6G8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.16862745100000001" green="0.56470588239999997" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYn-Lz-CK0">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qJ-rh-um5">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.16862745100000001" green="0.56470588239999997" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2a-Bi-HbG">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="188" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-ZS-2qw">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="B2a-Bi-HbG" secondAttribute="trailing" id="0jD-hh-zSf"/>
+                                                <constraint firstAttribute="topMargin" secondItem="tjN-4X-nZe" secondAttribute="top" id="340-OC-rie"/>
+                                                <constraint firstItem="GYn-Lz-CK0" firstAttribute="leading" secondItem="gud-g5-Oi6" secondAttribute="leading" id="48N-wx-lOQ"/>
+                                                <constraint firstItem="gud-g5-Oi6" firstAttribute="top" secondItem="ENX-JS-vPf" secondAttribute="bottom" constant="7.5" id="4co-9f-max"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="B2a-Bi-HbG" secondAttribute="bottom" id="6ge-Oy-0d0"/>
+                                                <constraint firstItem="tjN-4X-nZe" firstAttribute="height" secondItem="uke-V7-G2Q" secondAttribute="height" id="GGp-ym-5DA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="GYn-Lz-CK0" secondAttribute="trailing" id="NIV-oK-ShF"/>
+                                                <constraint firstItem="ENX-JS-vPf" firstAttribute="top" secondItem="tjN-4X-nZe" secondAttribute="top" id="V2A-8G-0Wq"/>
+                                                <constraint firstItem="4qJ-rh-um5" firstAttribute="bottom" secondItem="gud-g5-Oi6" secondAttribute="bottom" id="ajC-cq-beK"/>
+                                                <constraint firstItem="gud-g5-Oi6" firstAttribute="leading" secondItem="ENX-JS-vPf" secondAttribute="leading" id="fDX-jE-guG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ENX-JS-vPf" secondAttribute="trailing" id="pEB-nv-ZYM"/>
+                                                <constraint firstItem="GYn-Lz-CK0" firstAttribute="top" secondItem="gud-g5-Oi6" secondAttribute="bottom" constant="7" id="ptG-lh-jPP"/>
+                                                <constraint firstItem="B2a-Bi-HbG" firstAttribute="leading" secondItem="1hZ-ZS-2qw" secondAttribute="trailing" constant="4" id="qXt-Dt-hww"/>
+                                                <constraint firstItem="1hZ-ZS-2qw" firstAttribute="bottom" secondItem="B2a-Bi-HbG" secondAttribute="bottom" id="sCM-cG-SQY"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="tjN-4X-nZe" secondAttribute="leading" constant="8" id="vOH-z3-jl7"/>
+                                                <constraint firstItem="4qJ-rh-um5" firstAttribute="leading" secondItem="gud-g5-Oi6" secondAttribute="trailing" constant="4" id="xot-ji-CWO"/>
+                                                <constraint firstItem="ENX-JS-vPf" firstAttribute="leading" secondItem="tjN-4X-nZe" secondAttribute="trailing" constant="8" id="zwN-98-pxC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hotelImage" destination="tjN-4X-nZe" id="2yN-4d-B9C"/>
+                                            <outlet property="hotelLocation" destination="GYn-Lz-CK0" id="Oi3-Fk-OSW"/>
+                                            <outlet property="hotelName" destination="ENX-JS-vPf" id="QVo-4o-JXQ"/>
+                                            <outlet property="hotelScore" destination="gud-g5-Oi6" id="tZW-rO-VbU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1845,6 +1904,9 @@
                             <constraint firstItem="mFu-ZX-59Z" firstAttribute="top" secondItem="7ul-2P-UxH" secondAttribute="bottom" id="rEa-cN-2sF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="JSk-Ma-0Vr" id="bcC-KT-wQ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bL-RI-VNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

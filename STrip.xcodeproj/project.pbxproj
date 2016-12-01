@@ -29,6 +29,8 @@
 		BE59EDF21DE5B7B900C45F19 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59EDF01DE5B7B900C45F19 /* ImageCollectionViewCell.swift */; };
 		BE59EDF31DE5B7B900C45F19 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE59EDF11DE5B7B900C45F19 /* ImageCollectionViewCell.xib */; };
 		BE59EDF51DE5BDCA00C45F19 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */; };
+		BE5D2DAB1DED8AC00003CCA8 /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */; };
+		BE5D2DB41DED8BAE0003CCA8 /* HotelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D2DB31DED8BAE0003CCA8 /* HotelTableViewCell.swift */; };
 		BE6C2F291DD87C8200B7C17D /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */; };
 		BE7A90511DC8A6C10040847A /* ConstValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A90501DC8A6C10040847A /* ConstValue.swift */; };
 		BE7A90651DCDC76D0040847A /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A90631DCDC76D0040847A /* ActivityTableViewCell.swift */; };
@@ -161,6 +163,8 @@
 		BE59EDF01DE5B7B900C45F19 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE59EDF11DE5B7B900C45F19 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
+		BE5D2DB31DED8BAE0003CCA8 /* HotelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelTableViewCell.swift; sourceTree = "<group>"; };
 		BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllPhotosViewController.swift; path = ../AllPhotosViewController.swift; sourceTree = "<group>"; };
 		BE7A90501DC8A6C10040847A /* ConstValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstValue.swift; sourceTree = "<group>"; };
 		BE7A90631DCDC76D0040847A /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityTableViewCell.swift; path = ../ActivityTableViewCell.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				BE20E9E71DE43D8E005E59B6 /* ActivityCell.swift */,
 				BE59EDF01DE5B7B900C45F19 /* ImageCollectionViewCell.swift */,
 				BE59EDF11DE5B7B900C45F19 /* ImageCollectionViewCell.xib */,
+				BE5D2DB31DED8BAE0003CCA8 /* HotelTableViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */,
 				BE3D2E821DB8CA7A001A46D9 /* CreateActivityTableViewController.swift */,
 				BE3D2E8C1DBA1AB5001A46D9 /* CompletionActivityTableViewController.swift */,
+				BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */,
 				BEF35DB21DE6A6710055F120 /* TestViewController.swift */,
 				BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */,
 				BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */,
@@ -556,6 +562,8 @@
 				BEB918701DE7333100FA9843 /* STripList.swift in Sources */,
 				BE52F6391DD9B88400C7987C /* UICollectionView+Add.swift in Sources */,
 				BE52F63B1DD9B88400C7987C /* ZZAssetPreviewVC.swift in Sources */,
+				BE5D2DB41DED8BAE0003CCA8 /* HotelTableViewCell.swift in Sources */,
+				BE5D2DAB1DED8AC00003CCA8 /* HotelViewController.swift in Sources */,
 				BE7A90651DCDC76D0040847A /* ActivityTableViewCell.swift in Sources */,
 				BEB9186F1DE7333100FA9843 /* StripDetailActivity.swift in Sources */,
 				BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */,
