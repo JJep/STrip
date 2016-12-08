@@ -28,7 +28,6 @@ class ActivityTableViewCell: UITableViewCell {
     
     var isloved = false { didSet { updateUI() } }
     var isjoined = false { didSet { updateUI() } }
-    var delegate : LogManagerDelegate?
 
     @IBAction func likeBtn(_ sender: UIButton) {
         
@@ -50,18 +49,6 @@ class ActivityTableViewCell: UITableViewCell {
     }
     @IBAction func commentBtn(_ sender: UIButton) {
 
-        delegate = DiscoverTableViewController()
-        func login() {
-            //查看是否有委托，然后调用它
-            delegate?.writeLog()
-        }
-        
-//        login()
-        
-//        var story =  UIStoryboard(name: "Main", bundle: nil)
-//        var storVC =  story(identifier:"VC")
-//        self.presentViewController(storyVC, animated: true, completion: nil)
-        
     }
 
     override func awakeFromNib() {

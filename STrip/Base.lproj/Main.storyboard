@@ -91,7 +91,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dim-x8-PtN">
                                                     <state key="normal" title="Button" image="住宿"/>
                                                     <connections>
-                                                        <segue destination="nKY-rW-Hgd" kind="show" id="y0P-O7-KFt"/>
+                                                        <segue destination="nKY-rW-Hgd" kind="show" identifier="toSearchHotel" id="y0P-O7-KFt"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOT-01-mRD">
@@ -1774,6 +1774,11 @@
                                         <state key="normal" title="🔍关键字／酒店／品牌／品牌">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZB-Ew-RRi">
                                         <constraints>
@@ -1788,6 +1793,9 @@
                                         <state key="normal" title="&lt;">
                                             <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tapBack:" destination="02q-Wp-air" eventType="touchUpInside" id="gHI-3b-aJo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1814,7 +1822,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSk-Ma-0Vr">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="Dzc-wj-7cs" customClass="HotelTableViewCell" customModule="STrip" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hotelCell" rowHeight="161" id="Dzc-wj-7cs" customClass="HotelTableViewCell" customModule="STrip" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dzc-wj-7cs" id="uke-V7-G2Q">
@@ -1884,6 +1892,7 @@
                                             <outlet property="hotelImage" destination="tjN-4X-nZe" id="2yN-4d-B9C"/>
                                             <outlet property="hotelLocation" destination="GYn-Lz-CK0" id="Oi3-Fk-OSW"/>
                                             <outlet property="hotelName" destination="ENX-JS-vPf" id="QVo-4o-JXQ"/>
+                                            <outlet property="hotelPrice" destination="1hZ-ZS-2qw" id="wBU-m8-nfe"/>
                                             <outlet property="hotelScore" destination="gud-g5-Oi6" id="tZW-rO-VbU"/>
                                         </connections>
                                     </tableViewCell>
@@ -1896,7 +1905,7 @@
                             <constraint firstItem="t07-a0-IG3" firstAttribute="width" secondItem="RW5-oq-EJi" secondAttribute="width" id="Wu6-eO-h7x"/>
                             <constraint firstItem="JSk-Ma-0Vr" firstAttribute="leading" secondItem="RW5-oq-EJi" secondAttribute="leadingMargin" constant="-16" id="der-ex-eJb"/>
                             <constraint firstItem="t07-a0-IG3" firstAttribute="centerX" secondItem="RW5-oq-EJi" secondAttribute="centerX" id="ggs-iU-3OF"/>
-                            <constraint firstItem="HoJ-0r-Odb" firstAttribute="top" secondItem="JSk-Ma-0Vr" secondAttribute="bottom" constant="-49" id="gq8-wL-dQx"/>
+                            <constraint firstItem="HoJ-0r-Odb" firstAttribute="top" secondItem="JSk-Ma-0Vr" secondAttribute="bottom" id="gq8-wL-dQx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JSk-Ma-0Vr" secondAttribute="trailing" constant="-16" id="kKi-9U-fiB"/>
                             <constraint firstItem="mFu-ZX-59Z" firstAttribute="width" secondItem="RW5-oq-EJi" secondAttribute="width" id="mQj-9V-D7X"/>
                             <constraint firstItem="mFu-ZX-59Z" firstAttribute="centerX" secondItem="RW5-oq-EJi" secondAttribute="centerX" id="mog-mw-Fac"/>
@@ -2701,7 +2710,7 @@
         <!--酒店-->
         <scene sceneID="uzd-cK-lHs">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="nKY-rW-Hgd" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="nKY-rW-Hgd" customClass="SerachHotelViewController" customModule="STrip" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ofg-vk-da0"/>
                         <viewControllerLayoutGuide type="bottom" id="whJ-nV-rFH"/>
@@ -2710,13 +2719,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-PU-WE4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-df-QjY"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-PU-WE4">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tff-ft-FsG">
-                                        <state key="normal" title="目的地">
-                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-29-igl">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="MVG-z7-qQs"/>
@@ -2730,42 +2735,18 @@
                                             <constraint firstAttribute="height" constant="2" id="qAW-kl-eCs"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJU-rO-dL1">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="gkY-uB-cU0"/>
-                                        </constraints>
-                                        <state key="normal" title="入住时间／离开时间">
-                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twG-Fs-0Re">
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="izG-Gd-4s5"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-Ph-QUk">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="yBz-TH-zSI"/>
-                                        </constraints>
-                                        <state key="normal" title="关键字／品牌／酒店名">
-                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuM-iO-dL0">
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="8wN-mp-Oga"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4c-JN-Id8">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="Aw2-Iw-bFE"/>
-                                        </constraints>
-                                        <state key="normal" title="价格／星级">
-                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-6z-Xt3">
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
@@ -2780,44 +2761,72 @@
                                         <state key="normal" title="查询">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="02q-Wp-air" kind="show" id="NvS-8k-BrR"/>
+                                            <segue destination="02q-Wp-air" kind="show" identifier="showHotel" id="NvS-8k-BrR"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="目的地" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zq9-RW-fmy">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="入住时间" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="usK-1Z-eM5">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="关键字/位置/品牌/酒店名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MwC-1P-Wep">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="价格/星级" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2G-KJ-nCI">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="r4c-JN-Id8" firstAttribute="top" secondItem="wuM-iO-dL0" secondAttribute="bottom" constant="8" id="18B-UZ-naq"/>
                                     <constraint firstAttribute="trailing" secondItem="Qfv-6z-Xt3" secondAttribute="trailing" constant="4" id="4FA-a3-0GA"/>
                                     <constraint firstItem="twG-Fs-0Re" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="6Nf-Qm-W49"/>
                                     <constraint firstAttribute="height" constant="279" id="6k3-WT-uUB"/>
+                                    <constraint firstAttribute="trailing" secondItem="W2G-KJ-nCI" secondAttribute="trailing" constant="7" id="7wJ-hw-caS"/>
                                     <constraint firstAttribute="trailing" secondItem="9Gg-29-igl" secondAttribute="trailing" constant="8" id="CX0-Y1-BbS"/>
+                                    <constraint firstItem="usK-1Z-eM5" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="Ccm-RI-wG7"/>
+                                    <constraint firstItem="Qfv-6z-Xt3" firstAttribute="top" secondItem="W2G-KJ-nCI" secondAttribute="bottom" constant="8" id="FHb-qF-DTb"/>
                                     <constraint firstAttribute="trailing" secondItem="twG-Fs-0Re" secondAttribute="trailing" id="FMf-C1-Gyd"/>
-                                    <constraint firstItem="r4c-JN-Id8" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="4" id="G3H-Ad-bjk"/>
                                     <constraint firstAttribute="trailing" secondItem="dsV-Vf-97r" secondAttribute="trailing" constant="17" id="H9i-sn-Wqz"/>
                                     <constraint firstAttribute="width" constant="291" id="Inu-r3-SVa"/>
+                                    <constraint firstItem="usK-1Z-eM5" firstAttribute="height" secondItem="zq9-RW-fmy" secondAttribute="height" id="J3G-RG-8aF"/>
                                     <constraint firstAttribute="trailing" secondItem="wuM-iO-dL0" secondAttribute="trailing" id="Ksb-a8-wB5"/>
+                                    <constraint firstAttribute="trailing" secondItem="usK-1Z-eM5" secondAttribute="trailing" constant="8" id="MAR-7W-Tc4"/>
+                                    <constraint firstItem="W2G-KJ-nCI" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="9" id="MDX-8f-0TL"/>
+                                    <constraint firstItem="MwC-1P-Wep" firstAttribute="height" secondItem="usK-1Z-eM5" secondAttribute="height" id="Nzu-Pg-Ajj"/>
+                                    <constraint firstItem="j4V-W1-Iw7" firstAttribute="top" secondItem="zq9-RW-fmy" secondAttribute="bottom" constant="8" id="O4m-UG-ESh"/>
+                                    <constraint firstItem="twG-Fs-0Re" firstAttribute="top" secondItem="usK-1Z-eM5" secondAttribute="bottom" constant="8" id="OKY-rg-plH"/>
                                     <constraint firstAttribute="trailing" secondItem="j4V-W1-Iw7" secondAttribute="trailing" id="QNm-u1-hVs"/>
-                                    <constraint firstItem="wuM-iO-dL0" firstAttribute="top" secondItem="a6u-Ph-QUk" secondAttribute="bottom" constant="8" id="Sew-eU-Ji2"/>
-                                    <constraint firstItem="fJU-rO-dL1" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="T6Q-td-BVW"/>
-                                    <constraint firstItem="fJU-rO-dL1" firstAttribute="top" secondItem="j4V-W1-Iw7" secondAttribute="bottom" constant="8" id="Wsx-GT-EUF"/>
-                                    <constraint firstItem="a6u-Ph-QUk" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="ZFK-cE-EyK"/>
-                                    <constraint firstItem="twG-Fs-0Re" firstAttribute="top" secondItem="fJU-rO-dL1" secondAttribute="bottom" constant="8" id="aJZ-nR-pxW"/>
-                                    <constraint firstItem="j4V-W1-Iw7" firstAttribute="top" secondItem="Tff-ft-FsG" secondAttribute="bottom" constant="8" id="b1p-sr-p2s"/>
-                                    <constraint firstItem="a6u-Ph-QUk" firstAttribute="top" secondItem="twG-Fs-0Re" secondAttribute="bottom" constant="8" id="buj-CI-Ws4"/>
-                                    <constraint firstItem="Tff-ft-FsG" firstAttribute="top" secondItem="wRi-PU-WE4" secondAttribute="top" constant="8" id="dbG-1e-NKc"/>
+                                    <constraint firstItem="W2G-KJ-nCI" firstAttribute="top" secondItem="wuM-iO-dL0" secondAttribute="bottom" constant="8" id="XnL-El-zTM"/>
+                                    <constraint firstItem="9Gg-29-igl" firstAttribute="leading" secondItem="zq9-RW-fmy" secondAttribute="trailing" constant="8" id="Y5u-Hp-aI0"/>
+                                    <constraint firstItem="MwC-1P-Wep" firstAttribute="top" secondItem="twG-Fs-0Re" secondAttribute="bottom" constant="8" id="Zmg-EH-5ao"/>
+                                    <constraint firstItem="W2G-KJ-nCI" firstAttribute="height" secondItem="MwC-1P-Wep" secondAttribute="height" id="dWk-Yk-Cz1"/>
                                     <constraint firstItem="wuM-iO-dL0" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="dgz-4J-AnD"/>
-                                    <constraint firstAttribute="trailing" secondItem="r4c-JN-Id8" secondAttribute="trailing" constant="4" id="h2O-E6-8mR"/>
-                                    <constraint firstAttribute="trailing" secondItem="fJU-rO-dL1" secondAttribute="trailing" constant="8" id="i9G-sR-Vmq"/>
-                                    <constraint firstItem="Tff-ft-FsG" firstAttribute="height" secondItem="9Gg-29-igl" secondAttribute="height" id="klE-eY-8K3"/>
-                                    <constraint firstItem="9Gg-29-igl" firstAttribute="leading" secondItem="Tff-ft-FsG" secondAttribute="trailing" constant="8" id="knY-d8-grO"/>
-                                    <constraint firstAttribute="trailing" secondItem="a6u-Ph-QUk" secondAttribute="trailing" constant="8" id="lwO-5z-QT1"/>
-                                    <constraint firstItem="Tff-ft-FsG" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="nXh-xs-Vez"/>
-                                    <constraint firstItem="Qfv-6z-Xt3" firstAttribute="top" secondItem="r4c-JN-Id8" secondAttribute="bottom" constant="8" id="oul-fO-UBK"/>
+                                    <constraint firstItem="MwC-1P-Wep" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="ets-b8-rdg"/>
+                                    <constraint firstItem="zq9-RW-fmy" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="fFK-Ox-VXg"/>
+                                    <constraint firstAttribute="trailing" secondItem="MwC-1P-Wep" secondAttribute="trailing" constant="8" id="nMl-Dp-NIM"/>
+                                    <constraint firstItem="zq9-RW-fmy" firstAttribute="top" secondItem="wRi-PU-WE4" secondAttribute="top" constant="8" id="pZ5-1k-XZ7"/>
                                     <constraint firstItem="j4V-W1-Iw7" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="8" id="tFY-te-kjI"/>
                                     <constraint firstItem="dsV-Vf-97r" firstAttribute="top" secondItem="Qfv-6z-Xt3" secondAttribute="bottom" constant="8" id="te8-wC-SDh"/>
+                                    <constraint firstItem="zq9-RW-fmy" firstAttribute="height" secondItem="9Gg-29-igl" secondAttribute="height" id="u3u-Rt-iRe"/>
                                     <constraint firstItem="dsV-Vf-97r" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="18" id="ulF-mn-Lij"/>
                                     <constraint firstItem="9Gg-29-igl" firstAttribute="top" secondItem="wRi-PU-WE4" secondAttribute="top" constant="8" id="vYJ-Sa-wvE"/>
+                                    <constraint firstItem="usK-1Z-eM5" firstAttribute="top" secondItem="j4V-W1-Iw7" secondAttribute="bottom" constant="8" id="xC4-Al-zTD"/>
+                                    <constraint firstItem="wuM-iO-dL0" firstAttribute="top" secondItem="MwC-1P-Wep" secondAttribute="bottom" constant="8" id="xXw-g1-gAB"/>
                                     <constraint firstItem="Qfv-6z-Xt3" firstAttribute="leading" secondItem="wRi-PU-WE4" secondAttribute="leading" constant="4" id="ybY-Tl-VMf"/>
                                 </constraints>
                             </view>
@@ -2825,18 +2834,32 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wRi-PU-WE4" firstAttribute="centerX" secondItem="9tO-Bb-9kd" secondAttribute="centerX" id="0i4-dt-hzc"/>
+                            <constraint firstItem="cXS-df-QjY" firstAttribute="centerY" secondItem="9tO-Bb-9kd" secondAttribute="centerY" id="2xa-O1-u3o"/>
+                            <constraint firstItem="cXS-df-QjY" firstAttribute="height" secondItem="9tO-Bb-9kd" secondAttribute="height" id="OT1-G8-9g7"/>
+                            <constraint firstItem="cXS-df-QjY" firstAttribute="width" secondItem="9tO-Bb-9kd" secondAttribute="width" id="WP7-mj-n9p"/>
+                            <constraint firstItem="cXS-df-QjY" firstAttribute="centerX" secondItem="9tO-Bb-9kd" secondAttribute="centerX" id="mjK-ek-hWy"/>
                             <constraint firstItem="wRi-PU-WE4" firstAttribute="centerY" secondItem="9tO-Bb-9kd" secondAttribute="centerY" id="pPW-ib-SCX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="酒店" id="sff-MS-ehA">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="YMd-NA-A2E">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lwp-yH-ZRQ">
+                        <barButtonItem key="leftBarButtonItem" title="返回" style="plain" id="VcQ-Kq-aDw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wEy-Qw-0Qr">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt;"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="tapBack:" destination="nKY-rW-Hgd" eventType="touchUpInside" id="ypn-IC-lgZ"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backImage" destination="cXS-df-QjY" id="LMX-sP-ZKr"/>
+                        <outlet property="destinationLabel" destination="zq9-RW-fmy" id="i5f-zl-M0w"/>
+                        <outlet property="keyWords" destination="MwC-1P-Wep" id="YcV-GZ-w3q"/>
+                        <outlet property="priceLabel" destination="W2G-KJ-nCI" id="TwN-xw-EvG"/>
+                        <outlet property="timeLabel" destination="usK-1Z-eM5" id="4zU-gb-Lvw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9J-eJ-L3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

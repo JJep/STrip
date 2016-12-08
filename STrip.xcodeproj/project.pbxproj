@@ -61,6 +61,9 @@
 		BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */; };
 		BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */; };
 		BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */; };
+		BEE6FC3D1DF6C3A300A088C7 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FC3B1DF6C3A300A088C7 /* Hotel.swift */; };
+		BEE6FC3E1DF6C3A300A088C7 /* HotelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FC3C1DF6C3A300A088C7 /* HotelList.swift */; };
+		BEE6FC471DF6CA6B00A088C7 /* SerachHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */; };
 		BEF35DB31DE6A6710055F120 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DB21DE6A6710055F120 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +199,9 @@
 		BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailActivityViewController.swift; sourceTree = "<group>"; };
 		BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		BEE6FC3B1DF6C3A300A088C7 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
+		BEE6FC3C1DF6C3A300A088C7 /* HotelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelList.swift; sourceTree = "<group>"; };
+		BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerachHotelViewController.swift; sourceTree = "<group>"; };
 		BEF35DB21DE6A6710055F120 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +230,8 @@
 		BE20E9E01DE43A32005E59B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BEE6FC3B1DF6C3A300A088C7 /* Hotel.swift */,
+				BEE6FC3C1DF6C3A300A088C7 /* HotelList.swift */,
 				BEB918721DE7350C00FA9843 /* DetailCommentList.swift */,
 				BEB918731DE7350C00FA9843 /* DetailCommentRootClass.swift */,
 				BEB918681DE7333100FA9843 /* STripActivity.swift */,
@@ -321,6 +329,7 @@
 				BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */,
 				BE3D2E821DB8CA7A001A46D9 /* CreateActivityTableViewController.swift */,
 				BE3D2E8C1DBA1AB5001A46D9 /* CompletionActivityTableViewController.swift */,
+				BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */,
 				BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */,
 				BEF35DB21DE6A6710055F120 /* TestViewController.swift */,
 				BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */,
@@ -544,6 +553,7 @@
 				BE4F1AC91DAE2660006C8EA9 /* FirstPageViewController.swift in Sources */,
 				BE7AFF9D1DB646A500DD250F /* FriendTableViewController.swift in Sources */,
 				BE52F6411DD9B88400C7987C /* ZZPhotoPreviewCell.swift in Sources */,
+				BEE6FC3E1DF6C3A300A088C7 /* HotelList.swift in Sources */,
 				BEC4E38C1DBCD02700ADF070 /* PickerViewController.swift in Sources */,
 				BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */,
 				BEB918741DE7350C00FA9843 /* DetailCommentList.swift in Sources */,
@@ -566,6 +576,7 @@
 				BE5D2DAB1DED8AC00003CCA8 /* HotelViewController.swift in Sources */,
 				BE7A90651DCDC76D0040847A /* ActivityTableViewCell.swift in Sources */,
 				BEB9186F1DE7333100FA9843 /* StripDetailActivity.swift in Sources */,
+				BEE6FC471DF6CA6B00A088C7 /* SerachHotelViewController.swift in Sources */,
 				BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */,
 				BEB73EE71DE188D5005D61DF /* CommentViewController.swift in Sources */,
 				BEAE1F061DABC82800284BEB /* STrip.xcdatamodeld in Sources */,
@@ -579,6 +590,7 @@
 				BE52F63F1DD9B88400C7987C /* ZZImageSelectedLayer.swift in Sources */,
 				BE52F63A1DD9B88400C7987C /* ZZAssetGridViewController.swift in Sources */,
 				BE52F6421DD9B88400C7987C /* ZZPhotoViewController.swift in Sources */,
+				BEE6FC3D1DF6C3A300A088C7 /* Hotel.swift in Sources */,
 				BEB918751DE7350C00FA9843 /* DetailCommentRootClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

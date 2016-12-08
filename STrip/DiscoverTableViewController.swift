@@ -10,19 +10,8 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-//定义一个协议
-protocol LogManagerDelegate {
-    func writeLog()
-}
+class DiscoverTableViewController: UITableViewController {
 
-class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
-    
-    //用户登录类
-    func writeLog() {
-        print("将日志记录到sqlite数据库中")
-        self.performSegue(withIdentifier: "showComment", sender: 1)
-    }
-    
     var activitis: [STripList] = []
     var aid: Int!
     
@@ -33,8 +22,6 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
         
         downloadData()
         
-        self.refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(downloadData) , for: .valueChanged)
     }
     
 
@@ -83,7 +70,9 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
         tableView.estimatedRowHeight = 44.0
         
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(downloadData) , for: .valueChanged)
     }
     
     override func didReceiveMemoryWarning() {
@@ -114,9 +103,6 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
-        
-//        let item = tableData[indexPath.row]
-        
         let item = activitis[indexPath.row]
         
         cell.aid = item.id
@@ -145,10 +131,7 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
         
         
         let thumbArray = item.thumbnail.components(separatedBy: ",")
-//        print("thumbArray==================================\nthumbArray.count = \(thumbArray.count)")
-//        for i in 0..<thumbArray.count {
-//            print(thumbArray[i])
-//        }
+
         switch thumbArray.count {
         case 2:
             let pic1 = ConstValue.address + "/Trip5.0/thumbnails/" + thumbArray[0]
@@ -303,12 +286,6 @@ class DiscoverTableViewController: UITableViewController, LogManagerDelegate {
             let item = self.activitis[num!]
             destVC.aid = item.id
             
-            
-//            let destVC = segue.destination as! CommentViewController
-//            let index = tableView.indexPathForSelectedRow
-//            let num = index?.row
-//            let item = self.activitis[num!]
-//            destVC.aid = item.id
         }
     }
  

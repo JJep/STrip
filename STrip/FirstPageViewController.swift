@@ -94,7 +94,7 @@ class FirstPageViewController: UIViewController, UIScrollViewDelegate{
     }
     
     func initView () {
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,6 +108,11 @@ class FirstPageViewController: UIViewController, UIScrollViewDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "toSearchHotel" {
+            let destVC = segue.destination as! SerachHotelViewController
+            destVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            
+        }
     }
  
      @IBAction func backToFirstPage (segue: UIStoryboardSegue) {

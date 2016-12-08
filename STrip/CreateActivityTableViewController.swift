@@ -29,14 +29,6 @@ class CreateActivityTableViewController: UITableViewController, UITextViewDelega
         textField.resignFirstResponder()
         return true
     }
-    
-    func textView(_ shouldChangeTextIntextView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            tripperRequestTextView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
 
     func animateViewMoving (up:Bool, moveValue :CGFloat){
         let movementDuration:TimeInterval = 0.3
@@ -48,6 +40,7 @@ class CreateActivityTableViewController: UITableViewController, UITextViewDelega
         UIView.commitAnimations()
     }
     
+    
     //MARK: textView的相关设置
     func initTextView (textView: UITextView) {
         textView.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
@@ -56,6 +49,16 @@ class CreateActivityTableViewController: UITableViewController, UITextViewDelega
         initialText = textView.text
         tripperRequestTextView.delegate = self
     }
+    
+    
+    func textView(_ shouldChangeTextIntextView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            tripperRequestTextView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+
     
     func textViewDidBeginEditing (_ textView: UITextView ){
         animateViewMoving(up: true, moveValue: 100)

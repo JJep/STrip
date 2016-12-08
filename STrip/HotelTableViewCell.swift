@@ -14,6 +14,7 @@ class HotelTableViewCell: UITableViewCell {
     @IBOutlet weak var hotelName: UILabel!
     @IBOutlet weak var hotelScore: UILabel!
     @IBOutlet weak var hotelLocation: UILabel!
+    @IBOutlet weak var hotelPrice: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
