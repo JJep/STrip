@@ -36,7 +36,7 @@ struct StripRootActivity{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if comments != nil{
 			var dictionaryElements = [NSDictionary]()
 			for commentsElement in comments {

@@ -32,7 +32,7 @@ struct Hotel{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if list != nil{
 			var dictionaryElements = [NSDictionary]()
 			for listElement in list {

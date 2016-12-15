@@ -36,7 +36,7 @@ struct DetailCommentList{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if userName != nil{
 			dictionary["userName"] = userName
 		}

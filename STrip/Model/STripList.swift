@@ -66,7 +66,7 @@ struct STripList{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if birthland != nil{
 			dictionary["birthland"] = birthland
 		}

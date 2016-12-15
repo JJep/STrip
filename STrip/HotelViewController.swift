@@ -73,6 +73,10 @@ class HotelViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(DetailHotelViewController(), animated: true)
+    }
+    
     func downloadData () {
         let parameters = [
             "key": key

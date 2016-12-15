@@ -14,6 +14,21 @@
 		BE37A77A1DCDCF2F00E01FE4 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE37A7791DCDCF2F00E01FE4 /* DiscoverTableViewController.swift */; };
 		BE3D2E831DB8CA7A001A46D9 /* CreateActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D2E821DB8CA7A001A46D9 /* CreateActivityTableViewController.swift */; };
 		BE3D2E8D1DBA1AB6001A46D9 /* CompletionActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D2E8C1DBA1AB5001A46D9 /* CompletionActivityTableViewController.swift */; };
+		BE4C622E1DFAD054005B4B1B /* TangramKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62221DFAD054005B4B1B /* TangramKit.swift */; };
+		BE4C622F1DFAD054005B4B1B /* TGBaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62231DFAD054005B4B1B /* TGBaseLayout.swift */; };
+		BE4C62301DFAD054005B4B1B /* TGDimeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62241DFAD054005B4B1B /* TGDimeAdapter.swift */; };
+		BE4C62311DFAD054005B4B1B /* TGFloatLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62251DFAD054005B4B1B /* TGFloatLayout.swift */; };
+		BE4C62321DFAD054005B4B1B /* TGFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62261DFAD054005B4B1B /* TGFlowLayout.swift */; };
+		BE4C62331DFAD054005B4B1B /* TGFrameLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62271DFAD054005B4B1B /* TGFrameLayout.swift */; };
+		BE4C62341DFAD054005B4B1B /* TGLayoutPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62281DFAD054005B4B1B /* TGLayoutPos.swift */; };
+		BE4C62351DFAD054005B4B1B /* TGLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62291DFAD054005B4B1B /* TGLayoutSize.swift */; };
+		BE4C62361DFAD054005B4B1B /* TGLayoutSizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C622A1DFAD054005B4B1B /* TGLayoutSizeClass.swift */; };
+		BE4C62371DFAD054005B4B1B /* TGLinearLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C622B1DFAD054005B4B1B /* TGLinearLayout.swift */; };
+		BE4C62381DFAD054005B4B1B /* TGRelativeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C622C1DFAD054005B4B1B /* TGRelativeLayout.swift */; };
+		BE4C62391DFAD054005B4B1B /* TGTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C622D1DFAD054005B4B1B /* TGTableLayout.swift */; };
+		BE4C624F1DFAD81E005B4B1B /* DetailHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C624E1DFAD81E005B4B1B /* DetailHotelViewController.swift */; };
+		BE4C62511DFADEF5005B4B1B /* CFTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62501DFADEF5005B4B1B /* CFTool.swift */; };
+		BE4C62531DFD09FC005B4B1B /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C62521DFD09FC005B4B1B /* DatePickerViewController.swift */; };
 		BE4F1AC91DAE2660006C8EA9 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F1AC81DAE2660006C8EA9 /* FirstPageViewController.swift */; };
 		BE52F6391DD9B88400C7987C /* UICollectionView+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F62F1DD9B88400C7987C /* UICollectionView+Add.swift */; };
 		BE52F63A1DD9B88400C7987C /* ZZAssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F6301DD9B88400C7987C /* ZZAssetGridViewController.swift */; };
@@ -28,7 +43,6 @@
 		BE5609A91DC876D5003767DC /* PersonalCenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5609A81DC876D5003767DC /* PersonalCenterTableViewController.swift */; };
 		BE59EDF21DE5B7B900C45F19 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59EDF01DE5B7B900C45F19 /* ImageCollectionViewCell.swift */; };
 		BE59EDF31DE5B7B900C45F19 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE59EDF11DE5B7B900C45F19 /* ImageCollectionViewCell.xib */; };
-		BE59EDF51DE5BDCA00C45F19 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */; };
 		BE5D2DAB1DED8AC00003CCA8 /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */; };
 		BE5D2DB41DED8BAE0003CCA8 /* HotelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D2DB31DED8BAE0003CCA8 /* HotelTableViewCell.swift */; };
 		BE6C2F291DD87C8200B7C17D /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */; };
@@ -38,8 +52,6 @@
 		BE7AFF911DB63B8800DD250F /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7AFF8F1DB63B8800DD250F /* MessageTableViewCell.swift */; };
 		BE7AFF921DB63B8800DD250F /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7AFF901DB63B8800DD250F /* MessageTableViewCell.xib */; };
 		BE7AFF9D1DB646A500DD250F /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7AFF9C1DB646A500DD250F /* FriendTableViewController.swift */; };
-		BE8A7C341DAF98A3002126BE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8A7C271DAF9896002126BE /* Alamofire.framework */; };
-		BE8A7C351DAF98A3002126BE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE8A7C271DAF9896002126BE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE8A7C401DB0D922002126BE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8A7C3F1DB0D922002126BE /* RegisterViewController.swift */; };
 		BEA532A21DB0EC22009A36A0 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA532A11DB0EC22009A36A0 /* ForgetPasswordViewController.swift */; };
 		BEAE1EFE1DABC82700284BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAE1EFD1DABC82700284BEB /* AppDelegate.swift */; };
@@ -60,97 +72,37 @@
 		BEC4E38C1DBCD02700ADF070 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */; };
 		BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */; };
 		BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */; };
-		BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */; };
 		BEE6FC3D1DF6C3A300A088C7 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FC3B1DF6C3A300A088C7 /* Hotel.swift */; };
 		BEE6FC3E1DF6C3A300A088C7 /* HotelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FC3C1DF6C3A300A088C7 /* HotelList.swift */; };
 		BEE6FC471DF6CA6B00A088C7 /* SerachHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */; };
 		BEF35DB31DE6A6710055F120 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF35DB21DE6A6710055F120 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BE8A7C261DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		BE8A7C281DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		BE8A7C2A1DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire macOS";
-		};
-		BE8A7C2C1DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire macOS Tests";
-		};
-		BE8A7C2E1DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
-			remoteInfo = "Alamofire tvOS";
-		};
-		BE8A7C301DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
-			remoteInfo = "Alamofire tvOS Tests";
-		};
-		BE8A7C321DAF9896002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4202FE01B667AA100C997FB;
-			remoteInfo = "Alamofire watchOS";
-		};
-		BE8A7C361DAF98A3002126BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BE8A7C381DAF98A3002126BE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BE8A7C351DAF98A3002126BE /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		6D98A17F32449BA5426D0825 /* Pods-STrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-STrip/Pods-STrip.release.xcconfig"; sourceTree = "<group>"; };
 		9680B4B037CFCA9883ACAD83 /* Pods-STrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STrip/Pods-STrip.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E1387B60E16602DF707B16 /* Pods_STrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE20E9DF1DE436DA005E59B6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		BE20E9E71DE43D8E005E59B6 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		BE20E9E91DE440AC005E59B6 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
 		BE315E071DB608F40088C73A /* TestLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
 		BE37A7791DCDCF2F00E01FE4 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		BE3D2E821DB8CA7A001A46D9 /* CreateActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateActivityTableViewController.swift; sourceTree = "<group>"; };
 		BE3D2E8C1DBA1AB5001A46D9 /* CompletionActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionActivityTableViewController.swift; sourceTree = "<group>"; };
+		BE4C62221DFAD054005B4B1B /* TangramKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TangramKit.swift; sourceTree = "<group>"; };
+		BE4C62231DFAD054005B4B1B /* TGBaseLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGBaseLayout.swift; sourceTree = "<group>"; };
+		BE4C62241DFAD054005B4B1B /* TGDimeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGDimeAdapter.swift; sourceTree = "<group>"; };
+		BE4C62251DFAD054005B4B1B /* TGFloatLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGFloatLayout.swift; sourceTree = "<group>"; };
+		BE4C62261DFAD054005B4B1B /* TGFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGFlowLayout.swift; sourceTree = "<group>"; };
+		BE4C62271DFAD054005B4B1B /* TGFrameLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGFrameLayout.swift; sourceTree = "<group>"; };
+		BE4C62281DFAD054005B4B1B /* TGLayoutPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGLayoutPos.swift; sourceTree = "<group>"; };
+		BE4C62291DFAD054005B4B1B /* TGLayoutSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGLayoutSize.swift; sourceTree = "<group>"; };
+		BE4C622A1DFAD054005B4B1B /* TGLayoutSizeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGLayoutSizeClass.swift; sourceTree = "<group>"; };
+		BE4C622B1DFAD054005B4B1B /* TGLinearLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGLinearLayout.swift; sourceTree = "<group>"; };
+		BE4C622C1DFAD054005B4B1B /* TGRelativeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGRelativeLayout.swift; sourceTree = "<group>"; };
+		BE4C622D1DFAD054005B4B1B /* TGTableLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGTableLayout.swift; sourceTree = "<group>"; };
+		BE4C624E1DFAD81E005B4B1B /* DetailHotelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHotelViewController.swift; sourceTree = "<group>"; };
+		BE4C62501DFADEF5005B4B1B /* CFTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFTool.swift; sourceTree = "<group>"; };
+		BE4C62521DFD09FC005B4B1B /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		BE4F1AC81DAE2660006C8EA9 /* FirstPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
 		BE52F62F1DD9B88400C7987C /* UICollectionView+Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Add.swift"; sourceTree = "<group>"; };
 		BE52F6301DD9B88400C7987C /* ZZAssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZAssetGridViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +117,6 @@
 		BE5609A81DC876D5003767DC /* PersonalCenterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCenterTableViewController.swift; sourceTree = "<group>"; };
 		BE59EDF01DE5B7B900C45F19 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE59EDF11DE5B7B900C45F19 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
 		BE5D2DB31DED8BAE0003CCA8 /* HotelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelTableViewCell.swift; sourceTree = "<group>"; };
 		BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllPhotosViewController.swift; path = ../AllPhotosViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +126,6 @@
 		BE7AFF8F1DB63B8800DD250F /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		BE7AFF901DB63B8800DD250F /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		BE7AFF9C1DB646A500DD250F /* FriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendTableViewController.swift; path = ../FriendTableViewController.swift; sourceTree = "<group>"; };
-		BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../../Downloads/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		BE8A7C3F1DB0D922002126BE /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BEA532A11DB0EC22009A36A0 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		BEAE1EFA1DABC82700284BEB /* STrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +148,6 @@
 		BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailActivityViewController.swift; sourceTree = "<group>"; };
-		BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		BEE6FC3B1DF6C3A300A088C7 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		BEE6FC3C1DF6C3A300A088C7 /* HotelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelList.swift; sourceTree = "<group>"; };
 		BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerachHotelViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +159,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8A7C341DAF98A3002126BE /* Alamofire.framework in Frameworks */,
 				20CA842C0DCC1B806478ADE8 /* Pods_STrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +191,87 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BE4C62211DFAD054005B4B1B /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C62221DFAD054005B4B1B /* TangramKit.swift */,
+				BE4C62231DFAD054005B4B1B /* TGBaseLayout.swift */,
+				BE4C62241DFAD054005B4B1B /* TGDimeAdapter.swift */,
+				BE4C62251DFAD054005B4B1B /* TGFloatLayout.swift */,
+				BE4C62261DFAD054005B4B1B /* TGFlowLayout.swift */,
+				BE4C62271DFAD054005B4B1B /* TGFrameLayout.swift */,
+				BE4C62281DFAD054005B4B1B /* TGLayoutPos.swift */,
+				BE4C62291DFAD054005B4B1B /* TGLayoutSize.swift */,
+				BE4C622A1DFAD054005B4B1B /* TGLayoutSizeClass.swift */,
+				BE4C622B1DFAD054005B4B1B /* TGLinearLayout.swift */,
+				BE4C622C1DFAD054005B4B1B /* TGRelativeLayout.swift */,
+				BE4C622D1DFAD054005B4B1B /* TGTableLayout.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		BE4C62421DFAD2CA005B4B1B /* FirstPage */ = {
+			isa = PBXGroup;
+			children = (
+				BE4F1AC81DAE2660006C8EA9 /* FirstPageViewController.swift */,
+				BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */,
+				BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */,
+				BE4C624E1DFAD81E005B4B1B /* DetailHotelViewController.swift */,
+			);
+			name = FirstPage;
+			sourceTree = "<group>";
+		};
+		BE4C624A1DFAD557005B4B1B /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C62521DFD09FC005B4B1B /* DatePickerViewController.swift */,
+				BE3D2E8C1DBA1AB5001A46D9 /* CompletionActivityTableViewController.swift */,
+				BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */,
+				BE3D2E821DB8CA7A001A46D9 /* CreateActivityTableViewController.swift */,
+				BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */,
+				BE37A7791DCDCF2F00E01FE4 /* DiscoverTableViewController.swift */,
+				BEB73EE61DE188D5005D61DF /* CommentViewController.swift */,
+				BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		BE4C624B1DFAD63F005B4B1B /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				BE7AFF9C1DB646A500DD250F /* FriendTableViewController.swift */,
+			);
+			name = Friend;
+			sourceTree = "<group>";
+		};
+		BE4C624C1DFAD654005B4B1B /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				BEA532A11DB0EC22009A36A0 /* ForgetPasswordViewController.swift */,
+				BE5609A81DC876D5003767DC /* PersonalCenterTableViewController.swift */,
+				BEF35DB21DE6A6710055F120 /* TestViewController.swift */,
+				BE8A7C3F1DB0D922002126BE /* RegisterViewController.swift */,
+				BE315E071DB608F40088C73A /* TestLoginViewController.swift */,
+			);
+			name = Personal;
+			sourceTree = "<group>";
+		};
+		BE4C624D1DFAD69F005B4B1B /* SupportingFIles */ = {
+			isa = PBXGroup;
+			children = (
+				BE52F62E1DD9B88400C7987C /* ZZPhotoPicker */,
+				BE20E9E01DE43A32005E59B6 /* Model */,
+				BE4C62211DFAD054005B4B1B /* Lib */,
+				BE7A90671DCDC7800040847A /* cells */,
+				BE7A90501DC8A6C10040847A /* ConstValue.swift */,
+				BE4C62501DFADEF5005B4B1B /* CFTool.swift */,
+				BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */,
+				BEAE1F0C1DABC82800284BEB /* Info.plist */,
+			);
+			name = SupportingFIles;
+			path = STrip;
+			sourceTree = "<group>";
+		};
 		BE52F62E1DD9B88400C7987C /* ZZPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,7 +286,8 @@
 				BE52F6371DD9B88400C7987C /* ZZPhotoPreviewCell.swift */,
 				BE52F6381DD9B88400C7987C /* ZZPhotoViewController.swift */,
 			);
-			path = ZZPhotoPicker;
+			name = ZZPhotoPicker;
+			path = ../ZZPhotoPicker;
 			sourceTree = "<group>";
 		};
 		BE7A90671DCDC7800040847A /* cells */ = {
@@ -277,27 +307,12 @@
 			name = cells;
 			sourceTree = "<group>";
 		};
-		BE8A7C1C1DAF9895002126BE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BE8A7C271DAF9896002126BE /* Alamofire.framework */,
-				BE8A7C291DAF9896002126BE /* Alamofire iOS Tests.xctest */,
-				BE8A7C2B1DAF9896002126BE /* Alamofire.framework */,
-				BE8A7C2D1DAF9896002126BE /* Alamofire macOS Tests.xctest */,
-				BE8A7C2F1DAF9896002126BE /* Alamofire.framework */,
-				BE8A7C311DAF9896002126BE /* Alamofire tvOS Tests.xctest */,
-				BE8A7C331DAF9896002126BE /* Alamofire.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		BEAE1EF11DABC82600284BEB = {
 			isa = PBXGroup;
 			children = (
 				BE20E9E91DE440AC005E59B6 /* PodFile */,
-				BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */,
 				BEAE1EFC1DABC82700284BEB /* STrip */,
-				BE52F62E1DD9B88400C7987C /* ZZPhotoPicker */,
+				BE4C624D1DFAD69F005B4B1B /* SupportingFIles */,
 				BEAE1EFB1DABC82700284BEB /* Products */,
 				6886DFBEE5947403CD09DC06 /* Pods */,
 				D599D10FE68A301FC43148CD /* Frameworks */,
@@ -315,35 +330,15 @@
 		BEAE1EFC1DABC82700284BEB /* STrip */ = {
 			isa = PBXGroup;
 			children = (
-				BE20E9E01DE43A32005E59B6 /* Model */,
-				BE7A90671DCDC7800040847A /* cells */,
 				BEAE1EFD1DABC82700284BEB /* AppDelegate.swift */,
 				BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */,
-				BE4F1AC81DAE2660006C8EA9 /* FirstPageViewController.swift */,
-				BE37A7791DCDCF2F00E01FE4 /* DiscoverTableViewController.swift */,
-				BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */,
-				BEB73EE61DE188D5005D61DF /* CommentViewController.swift */,
-				BE7AFF9C1DB646A500DD250F /* FriendTableViewController.swift */,
-				BE5609A81DC876D5003767DC /* PersonalCenterTableViewController.swift */,
-				BED9C1411DBCA9E100750ED8 /* DatePickerViewController.swift */,
-				BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */,
-				BE3D2E821DB8CA7A001A46D9 /* CreateActivityTableViewController.swift */,
-				BE3D2E8C1DBA1AB5001A46D9 /* CompletionActivityTableViewController.swift */,
-				BEE6FC461DF6CA6A00A088C7 /* SerachHotelViewController.swift */,
-				BE5D2DAA1DED8AC00003CCA8 /* HotelViewController.swift */,
-				BEF35DB21DE6A6710055F120 /* TestViewController.swift */,
-				BE59EDF41DE5BDCA00C45F19 /* CollectionViewController.swift */,
-				BE6C2F281DD87C8200B7C17D /* AllPhotosViewController.swift */,
-				BE7A90501DC8A6C10040847A /* ConstValue.swift */,
-				BE8A7C3F1DB0D922002126BE /* RegisterViewController.swift */,
-				BE315E071DB608F40088C73A /* TestLoginViewController.swift */,
-				BEA532A11DB0EC22009A36A0 /* ForgetPasswordViewController.swift */,
 				BEAE1F011DABC82800284BEB /* Main.storyboard */,
 				BEAE1F091DABC82800284BEB /* LaunchScreen.storyboard */,
-				BEAE1F0C1DABC82800284BEB /* Info.plist */,
 				BEAE1F041DABC82800284BEB /* STrip.xcdatamodeld */,
-				BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */,
-				BE20E9DF1DE436DA005E59B6 /* MyPlayground.playground */,
+				BE4C62421DFAD2CA005B4B1B /* FirstPage */,
+				BE4C624A1DFAD557005B4B1B /* Discover */,
+				BE4C624B1DFAD63F005B4B1B /* Friend */,
+				BE4C624C1DFAD654005B4B1B /* Personal */,
 			);
 			path = STrip;
 			sourceTree = "<group>";
@@ -367,14 +362,12 @@
 				BEAE1EF61DABC82700284BEB /* Sources */,
 				BEAE1EF71DABC82700284BEB /* Frameworks */,
 				BEAE1EF81DABC82700284BEB /* Resources */,
-				BE8A7C381DAF98A3002126BE /* Embed Frameworks */,
 				20D458131531AF7A611A3438 /* [CP] Embed Pods Frameworks */,
 				8FC9934E40801A20861DF507 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BE8A7C371DAF98A3002126BE /* PBXTargetDependency */,
 			);
 			name = STrip;
 			productName = STrip;
@@ -394,6 +387,7 @@
 					BEAE1EF91DABC82700284BEB = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 8TAEZXHB8K;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -409,70 +403,12 @@
 			mainGroup = BEAE1EF11DABC82600284BEB;
 			productRefGroup = BEAE1EFB1DABC82700284BEB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = BE8A7C1C1DAF9895002126BE /* Products */;
-					ProjectRef = BE8A7C1B1DAF9895002126BE /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				BEAE1EF91DABC82700284BEB /* STrip */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		BE8A7C271DAF9896002126BE /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = BE8A7C261DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BE8A7C291DAF9896002126BE /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = BE8A7C281DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BE8A7C2B1DAF9896002126BE /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = BE8A7C2A1DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BE8A7C2D1DAF9896002126BE /* Alamofire macOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire macOS Tests.xctest";
-			remoteRef = BE8A7C2C1DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BE8A7C2F1DAF9896002126BE /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = BE8A7C2E1DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BE8A7C311DAF9896002126BE /* Alamofire tvOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire tvOS Tests.xctest";
-			remoteRef = BE8A7C301DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BE8A7C331DAF9896002126BE /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = BE8A7C321DAF9896002126BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BEAE1EF81DABC82700284BEB /* Resources */ = {
@@ -550,6 +486,7 @@
 				BEF35DB31DE6A6710055F120 /* TestViewController.swift in Sources */,
 				BE3D2E831DB8CA7A001A46D9 /* CreateActivityTableViewController.swift in Sources */,
 				BE6C2F291DD87C8200B7C17D /* AllPhotosViewController.swift in Sources */,
+				BE4C62391DFAD054005B4B1B /* TGTableLayout.swift in Sources */,
 				BE4F1AC91DAE2660006C8EA9 /* FirstPageViewController.swift in Sources */,
 				BE7AFF9D1DB646A500DD250F /* FriendTableViewController.swift in Sources */,
 				BE52F6411DD9B88400C7987C /* ZZPhotoPreviewCell.swift in Sources */,
@@ -559,34 +496,46 @@
 				BEB918741DE7350C00FA9843 /* DetailCommentList.swift in Sources */,
 				BE52F6401DD9B88400C7987C /* ZZPhotoCell.swift in Sources */,
 				BE37A77A1DCDCF2F00E01FE4 /* DiscoverTableViewController.swift in Sources */,
+				BE4C62311DFAD054005B4B1B /* TGFloatLayout.swift in Sources */,
 				BE5609A91DC876D5003767DC /* PersonalCenterTableViewController.swift in Sources */,
 				BEB9186D1DE7333100FA9843 /* STripActivity.swift in Sources */,
 				BE59EDF21DE5B7B900C45F19 /* ImageCollectionViewCell.swift in Sources */,
 				BEB918711DE7333100FA9843 /* StripRootActivity.swift in Sources */,
 				BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */,
+				BE4C62371DFAD054005B4B1B /* TGLinearLayout.swift in Sources */,
 				BEB9186E1DE7333100FA9843 /* StripComment.swift in Sources */,
+				BE4C62341DFAD054005B4B1B /* TGLayoutPos.swift in Sources */,
 				BE315E081DB608F40088C73A /* TestLoginViewController.swift in Sources */,
 				BE3D2E8D1DBA1AB6001A46D9 /* CompletionActivityTableViewController.swift in Sources */,
+				BE4C622F1DFAD054005B4B1B /* TGBaseLayout.swift in Sources */,
 				BE7AFF911DB63B8800DD250F /* MessageTableViewCell.swift in Sources */,
 				BE8A7C401DB0D922002126BE /* RegisterViewController.swift in Sources */,
 				BEB918701DE7333100FA9843 /* STripList.swift in Sources */,
 				BE52F6391DD9B88400C7987C /* UICollectionView+Add.swift in Sources */,
+				BE4C624F1DFAD81E005B4B1B /* DetailHotelViewController.swift in Sources */,
 				BE52F63B1DD9B88400C7987C /* ZZAssetPreviewVC.swift in Sources */,
+				BE4C62361DFAD054005B4B1B /* TGLayoutSizeClass.swift in Sources */,
+				BE4C62381DFAD054005B4B1B /* TGRelativeLayout.swift in Sources */,
+				BE4C62331DFAD054005B4B1B /* TGFrameLayout.swift in Sources */,
 				BE5D2DB41DED8BAE0003CCA8 /* HotelTableViewCell.swift in Sources */,
+				BE4C62321DFAD054005B4B1B /* TGFlowLayout.swift in Sources */,
+				BE4C62531DFD09FC005B4B1B /* DatePickerViewController.swift in Sources */,
 				BE5D2DAB1DED8AC00003CCA8 /* HotelViewController.swift in Sources */,
 				BE7A90651DCDC76D0040847A /* ActivityTableViewCell.swift in Sources */,
+				BE4C62351DFAD054005B4B1B /* TGLayoutSize.swift in Sources */,
 				BEB9186F1DE7333100FA9843 /* StripDetailActivity.swift in Sources */,
 				BEE6FC471DF6CA6B00A088C7 /* SerachHotelViewController.swift in Sources */,
-				BED9C1421DBCA9E100750ED8 /* DatePickerViewController.swift in Sources */,
 				BEB73EE71DE188D5005D61DF /* CommentViewController.swift in Sources */,
 				BEAE1F061DABC82800284BEB /* STrip.xcdatamodeld in Sources */,
+				BE4C622E1DFAD054005B4B1B /* TangramKit.swift in Sources */,
 				BEB3919E1DE038EC00D5F425 /* CommentTableViewCell.swift in Sources */,
 				BEA532A21DB0EC22009A36A0 /* ForgetPasswordViewController.swift in Sources */,
-				BE59EDF51DE5BDCA00C45F19 /* CollectionViewController.swift in Sources */,
 				BE52F63C1DD9B88400C7987C /* ZZGridViewCell.swift in Sources */,
 				BE20E9E81DE43D8E005E59B6 /* ActivityCell.swift in Sources */,
 				BEAE1EFE1DABC82700284BEB /* AppDelegate.swift in Sources */,
+				BE4C62301DFAD054005B4B1B /* TGDimeAdapter.swift in Sources */,
 				BE7A90511DC8A6C10040847A /* ConstValue.swift in Sources */,
+				BE4C62511DFADEF5005B4B1B /* CFTool.swift in Sources */,
 				BE52F63F1DD9B88400C7987C /* ZZImageSelectedLayer.swift in Sources */,
 				BE52F63A1DD9B88400C7987C /* ZZAssetGridViewController.swift in Sources */,
 				BE52F6421DD9B88400C7987C /* ZZPhotoViewController.swift in Sources */,
@@ -596,14 +545,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BE8A7C371DAF98A3002126BE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = BE8A7C361DAF98A3002126BE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BEAE1F011DABC82800284BEB /* Main.storyboard */ = {
@@ -722,8 +663,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9680B4B037CFCA9883ACAD83 /* Pods-STrip.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 8TAEZXHB8K;
 				INFOPLIST_FILE = STrip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -737,8 +678,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D98A17F32449BA5426D0825 /* Pods-STrip.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 8TAEZXHB8K;
 				INFOPLIST_FILE = STrip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

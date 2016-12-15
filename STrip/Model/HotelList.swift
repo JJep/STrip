@@ -44,7 +44,7 @@ struct HotelList{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if hotelName != nil{
 			dictionary["hotelName"] = hotelName
 		}

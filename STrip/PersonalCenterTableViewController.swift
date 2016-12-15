@@ -40,7 +40,7 @@ class PersonalCenterTableViewController: UITableViewController {
         
         if UserDefaults.standard.integer(forKey: "uid") != 0 {
             print("UserDefaults.standard.integerForKey(\"uid\") = \(UserDefaults.standard.integer(forKey: "uid"))")
-            userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as! String
+            userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
         } else {
             userNameLabel.text = "请登录"
         }

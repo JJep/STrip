@@ -35,7 +35,7 @@ struct StripComment{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if aid != nil{
 			dictionary["aid"] = aid
 		}
