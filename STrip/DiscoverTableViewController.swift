@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import MJRefresh
 
 class DiscoverTableViewController: UITableViewController {
 
@@ -73,6 +74,55 @@ class DiscoverTableViewController: UITableViewController {
         
         self.refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(downloadData) , for: .valueChanged)
+        
+        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(DiscoverTableViewController.footerRefresh))
+    }
+    
+    func footerRefresh() {
+        let parameters = [
+            "uid": UserDefaults.standard.integer(forKey: "uid")
+        ]
+        
+        Alamofire.request(ConstValue.address + "/Trip5.0/activity/showActivity", method: .post, parameters: parameters)
+            .responseJSON(completionHandler:{ Response in
+                
+                switch Response.result {
+                    
+                case .success(let json):
+                    let dict = json as! Dictionary<String, AnyObject>
+                    let status = dict["status"] as! Int
+                    print(dict)
+                    switch status {
+                    case 0:
+                        print("\(type(of: dict["uid"]))")
+                        guard let json = json as? NSDictionary else {
+                            return
+                        }
+                        
+                        let lives = STripActivity(fromDictionary: json).list!
+                        
+                        self.activitis = lives
+                        print("acitivitis=================")
+                        dump(self.activitis)
+                        
+                    default:
+                        break
+                    }
+                case .failure (let error):
+                    let alertController = UIAlertController(title: "系统提示", message: "网络无法连接", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                    alertController.addAction(cancelAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    print("\(error)")
+                }
+                
+                OperationQueue.main.addOperation {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+                
+            })
+
     }
     
     override func didReceiveMemoryWarning() {

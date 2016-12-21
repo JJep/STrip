@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20CA842C0DCC1B806478ADE8 /* Pods_STrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E1387B60E16602DF707B16 /* Pods_STrip.framework */; };
+		BE1B95911E094893001E72B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1B95901E094893001E72B7 /* Assets.xcassets */; };
 		BE20E9E81DE43D8E005E59B6 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE20E9E71DE43D8E005E59B6 /* ActivityCell.swift */; };
 		BE20E9EA1DE440AC005E59B6 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = BE20E9E91DE440AC005E59B6 /* PodFile */; };
 		BE315E081DB608F40088C73A /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE315E071DB608F40088C73A /* TestLoginViewController.swift */; };
@@ -68,7 +69,6 @@
 		BEB918711DE7333100FA9843 /* StripRootActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9186C1DE7333100FA9843 /* StripRootActivity.swift */; };
 		BEB918741DE7350C00FA9843 /* DetailCommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB918721DE7350C00FA9843 /* DetailCommentList.swift */; };
 		BEB918751DE7350C00FA9843 /* DetailCommentRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB918731DE7350C00FA9843 /* DetailCommentRootClass.swift */; };
-		BEC4C5121DB61CEA0003EBBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */; };
 		BEC4E38C1DBCD02700ADF070 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */; };
 		BEC4E3AB1DBE030100ADF070 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */; };
 		BEC9EEB11DD1CF5E008CA5B7 /* DetailActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */; };
@@ -82,6 +82,7 @@
 		6D98A17F32449BA5426D0825 /* Pods-STrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-STrip/Pods-STrip.release.xcconfig"; sourceTree = "<group>"; };
 		9680B4B037CFCA9883ACAD83 /* Pods-STrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STrip/Pods-STrip.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E1387B60E16602DF707B16 /* Pods_STrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1B95901E094893001E72B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE20E9E71DE43D8E005E59B6 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		BE20E9E91DE440AC005E59B6 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
 		BE315E071DB608F40088C73A /* TestLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +145,6 @@
 		BEB9186C1DE7333100FA9843 /* StripRootActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripRootActivity.swift; sourceTree = "<group>"; };
 		BEB918721DE7350C00FA9843 /* DetailCommentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentList.swift; sourceTree = "<group>"; };
 		BEB918731DE7350C00FA9843 /* DetailCommentRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentRootClass.swift; sourceTree = "<group>"; };
-		BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC4E38B1DBCD02700ADF070 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		BEC4E3AA1DBE030100ADF070 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BEC9EEB01DD1CF5E008CA5B7 /* DetailActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailActivityViewController.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 				BE7A90671DCDC7800040847A /* cells */,
 				BE7A90501DC8A6C10040847A /* ConstValue.swift */,
 				BE4C62501DFADEF5005B4B1B /* CFTool.swift */,
-				BEC4C5111DB61CEA0003EBBB /* Assets.xcassets */,
+				BE1B95901E094893001E72B7 /* Assets.xcassets */,
 				BEAE1F0C1DABC82800284BEB /* Info.plist */,
 			);
 			name = SupportingFIles;
@@ -419,8 +419,8 @@
 				BE7AFF921DB63B8800DD250F /* MessageTableViewCell.xib in Resources */,
 				BE7A90661DCDC76D0040847A /* ActivityTableViewCell.xib in Resources */,
 				BE20E9EA1DE440AC005E59B6 /* PodFile in Resources */,
+				BE1B95911E094893001E72B7 /* Assets.xcassets in Resources */,
 				BE59EDF31DE5B7B900C45F19 /* ImageCollectionViewCell.xib in Resources */,
-				BEC4C5121DB61CEA0003EBBB /* Assets.xcassets in Resources */,
 				BE52F63D1DD9B88400C7987C /* ZZImage.storyboard in Resources */,
 				BEAE1F031DABC82800284BEB /* Main.storyboard in Resources */,
 				BE52F63E1DD9B88400C7987C /* ZZImage.xcassets in Resources */,
@@ -663,13 +663,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9680B4B037CFCA9883ACAD83 /* Pods-STrip.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 8TAEZXHB8K;
 				INFOPLIST_FILE = STrip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.STrip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -678,13 +677,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D98A17F32449BA5426D0825 /* Pods-STrip.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 8TAEZXHB8K;
 				INFOPLIST_FILE = STrip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.STrip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -3,4 +3,5 @@ use_frameworks!
 target 'STrip' do
 pod 'Kingfisher'
 pod 'Alamofire', '~> 4.0'
+pod 'MJRefresh'
 end
